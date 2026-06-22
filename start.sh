@@ -10,7 +10,11 @@ DOMAIN_PACK_DIR="$ROOT_DIR/domain_packs/sichuan-finance"
 WORKSPACE_DIR="$ROOT_DIR/workspace"
 SYNC_DOMAIN_PACK="$ROOT_DIR/scripts/sync_domain_pack.sh"
 
-export DASHSCOPE_API_KEY="${DASHSCOPE_API_KEY:-${DASHSCOPE_API_KEY}}"
+if [ -z "${DASHSCOPE_API_KEY:-}" ]; then
+  echo "DASHSCOPE_API_KEY is required. Export it in your shell before running ./start.sh." >&2
+  exit 1
+fi
+export DASHSCOPE_API_KEY
 
 if [ ! -x "$VENV_PY" ]; then
   echo "Missing nanobot virtual environment: $VENV_PY" >&2
