@@ -1,0 +1,30 @@
+{
+  "agents": {
+    "defaults": {
+      "workspace": "/Users/hxy/Desktop/TableClaw/workspace",
+      "provider": "openai",
+      "model": "xopqwen36v35b",
+      "maxTokens": 8192,
+      "contextWindowTokens": 131072,
+      "temperature": 0.7,
+      "reasoningEffort": "high",
+      "timezone": "Asia/Shanghai",
+      "botName": "TableClaw",
+      "botIcon": "TC"
+    }
+  },
+  "providers": {
+    "openai": {
+      "apiKey": "${XFYUN_MAAS_API_KEY}",
+      "apiBase": "https://maas-api.cn-huabei-1.xf-yun.com/v2"
+    }
+  },
+  "channels": {
+    "showReasoning": true,
+    "sendProgress": true,
+    "sendToolHints": true
+  },
+  "tools": {
+    "restrictToWorkspace": false
+  }
+}

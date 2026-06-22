@@ -5,16 +5,23 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 NANOBOT_DIR="$ROOT_DIR/nanobot"
 VENV_PY="$NANOBOT_DIR/.venv/bin/python"
 VENV_ACTIVATE="$NANOBOT_DIR/.venv/bin/activate"
-CONFIG_FILE="$NANOBOT_DIR/configs/tableclaw-bailian-dashscope.json"
+CONFIG_FILE="${TABLECLAW_CONFIG:-$NANOBOT_DIR/configs/tableclaw-bailian-dashscope.json}"
 DOMAIN_PACK_DIR="$ROOT_DIR/domain_packs/sichuan-finance"
 WORKSPACE_DIR="$ROOT_DIR/workspace"
 SYNC_DOMAIN_PACK="$ROOT_DIR/scripts/sync_domain_pack.sh"
 
-if [ -z "${DASHSCOPE_API_KEY:-}" ]; then
-  echo "DASHSCOPE_API_KEY is required. Export it in your shell before running ./start.sh." >&2
+if grep -q 'DASHSCOPE_API_KEY' "$CONFIG_FILE" && [ -z "${DASHSCOPE_API_KEY:-}" ]; then
+  echo "DASHSCOPE_API_KEY is required by $CONFIG_FILE. Export it before running ./start.sh." >&2
   exit 1
 fi
-export DASHSCOPE_API_KEY
+
+if grep -q 'XFYUN_MAAS_API_KEY' "$CONFIG_FILE" && [ -z "${XFYUN_MAAS_API_KEY:-}" ]; then
+  echo "XFYUN_MAAS_API_KEY is required by $CONFIG_FILE. Export it before running ./start.sh." >&2
+  exit 1
+fi
+
+export DASHSCOPE_API_KEY="${DASHSCOPE_API_KEY:-}"
+export XFYUN_MAAS_API_KEY="${XFYUN_MAAS_API_KEY:-}"
 
 if [ ! -x "$VENV_PY" ]; then
   echo "Missing nanobot virtual environment: $VENV_PY" >&2
