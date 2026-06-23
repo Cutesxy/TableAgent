@@ -1,0 +1,131 @@
+{
+  "workbook": "docs/实验评测/generic-table-tasks/artifacts/pku-admission-real-user-20260623/outputs/北京大学各省各专业录取情况_评测结果.xlsx",
+  "sheets": [
+    {
+      "sheet": "原始数据",
+      "max_row": 509,
+      "max_column": 8,
+      "nonempty_cells": 3057,
+      "formula_count": 0,
+      "chart_count": 0,
+      "merged_cell_count": 26,
+      "merged_cell_samples": [
+        "B426:B458",
+        "B409:B425",
+        "B478:B493",
+        "B459:B477",
+        "B94:B107",
+        "B269:B288",
+        "B320:B331",
+        "B388:B408"
+      ]
+    },
+    {
+      "sheet": "原始数据_理科专业",
+      "max_row": 37,
+      "max_column": 75,
+      "nonempty_cells": 1175,
+      "formula_count": 0,
+      "chart_count": 0,
+      "merged_cell_count": 47,
+      "merged_cell_samples": [
+        "AX2:AZ2",
+        "BD2:BF2",
+        "AO37:AQ37",
+        "N2:P2",
+        "BJ2:BL2",
+        "BP2:BR2",
+        "Z37:AB37",
+        "AL37:AN37"
+      ]
+    },
+    {
+      "sheet": "清洗数据",
+      "max_row": 504,
+      "max_column": 8,
+      "nonempty_cells": 4016,
+      "formula_count": 0,
+      "chart_count": 0,
+      "merged_cell_count": 0,
+      "merged_cell_samples": []
+    },
+    {
+      "sheet": "统计分析",
+      "max_row": 111,
+      "max_column": 8,
+      "nonempty_cells": 438,
+      "formula_count": 308,
+      "chart_count": 0,
+      "merged_cell_count": 5,
+      "merged_cell_samples": [
+        "A9:H9",
+        "A18:H18",
+        "A28:H28",
+        "A102:H102",
+        "A1:H1"
+      ]
+    },
+    {
+      "sheet": "可视化图表",
+      "max_row": 1,
+      "max_column": 1,
+      "nonempty_cells": 0,
+      "formula_count": 0,
+      "chart_count": 4,
+      "merged_cell_count": 0,
+      "merged_cell_samples": []
+    }
+  ],
+  "formula_samples": {
+    "统计分析": [
+      {
+        "cell": "C3",
+        "formula": "=COUNTIFS(清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1)"
+      },
+      {
+        "cell": "D3",
+        "formula": "=MINIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1)"
+      },
+      {
+        "cell": "E3",
+        "formula": "=MAXIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1)"
+      },
+      {
+        "cell": "F3",
+        "formula": "=AVERAGEIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1)"
+      },
+      {
+        "cell": "G3",
+        "formula": "=MAXIFS(清洗数据!F2:F504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1)"
+      },
+      {
+        "cell": "H3",
+        "formula": "=IFERROR(AVERAGEIFS(清洗数据!H2:H504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,1),\"无控线\")"
+      },
+      {
+        "cell": "C4",
+        "formula": "=COUNTIFS(清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3)"
+      },
+      {
+        "cell": "D4",
+        "formula": "=MINIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3)"
+      },
+      {
+        "cell": "E4",
+        "formula": "=MAXIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3)"
+      },
+      {
+        "cell": "F4",
+        "formula": "=AVERAGEIFS(清洗数据!E2:E504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3)"
+      },
+      {
+        "cell": "G4",
+        "formula": "=MAXIFS(清洗数据!F2:F504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3)"
+      },
+      {
+        "cell": "H4",
+        "formula": "=IFERROR(AVERAGEIFS(清洗数据!H2:H504,清洗数据!B2:B504,\"文\",清洗数据!C2:C504,3),\"无控线\")"
+      }
+    ]
+  }
+}

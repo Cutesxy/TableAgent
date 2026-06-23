@@ -8,7 +8,7 @@ TableClaw 是一个通用 Table Agent 项目。它面向真实业务表格工作
 
 - 长期产品方向：To C / 通用 Table Agent。用户可以只上传一张表，也可以在多表 workspace 中连续分析。
 - 当前工程验证：四川财资工业表格 domain pack，用来验证多表召回、领域口径、sparse fallback、确定性读算工具和评测体系。
-- 第二阶段迁移：内置 `anthropic-xlsx` 大 spreadsheet skill，验证复杂 workbook 清洗、公式、建模、对标分析和可交付 `.xlsx` artifact。该路线面向更通用的表格上下游任务，不替代四川 domain pack，而是验证“通用底座 + 不同 skill/domain pack 可插拔”的迁移能力。
+- 第二阶段迁移：内置层收敛为一个 `anthropic-xlsx` 大 spreadsheet skill，验证复杂 workbook 清洗、公式、建模、对标分析和可交付 `.xlsx` artifact。该路线面向更通用的表格上下游任务，业务适配继续通过 domain pack 插拔完成。
 - 最新正式评测：`2026-06-16 V3 Final Eight-Way Eval with Gold-Issue Exclusion`。
   - 866 raw cases：badcase122 x 3 + query100 x 5。
   - 排除 53 个明显 gold/task issue 后，813 scored cases 主 ACC：95.20%；保守 pre-scored ACC：92.50%。
@@ -136,7 +136,7 @@ TableClaw 的能力不应该只有“通用 / 非通用”两类。更合理的�
 
 | 存储类型 | 示例 | 定位 |
 | --- | --- | --- |
-| Skill | table-read、table-clean、sichuan-finance skill | 保存“遇到某类任务应该怎么做”的流程经验和策略提醒。 |
+| Skill | anthropic-xlsx、domain skill、用户自定义 skill | 保存“遇到某类任务应该怎么做”的流程经验和策略提醒。 |
 | Domain Knowledge | 指标别名、表族映射、cohort、排序口径、fallback 规则 | 保存领域/客户层面的稳定业务知识。 |
 | Memory | working memory、session memory、long-term memory | 保存当前任务状态、用户确认、团队偏好、历史交互和可复用上下文。 |
 | Artifacts / Tool Traces | active file、schema cache、catalog、历史工具结果 | 保存当前任务和历史执行产生的可复用证据。 |
@@ -274,7 +274,7 @@ workspace/domain_knowledge/tableclaw_industrial_finance.json
 | --- | --- |
 | [文档总览](docs/README.md) | 项目文档入口，包含架构、功能开发、实验评测和项目管理索引。 |
 | [Domain Knowledge Migration](docs/功能开发/domain-knowledge-migration.md) | 说明领域包、skill、domain knowledge 与通用工具的边界。 |
-| [Skill 模块设计](docs/功能开发/skill-system.md) | 说明 builtin skill、workspace/domain skill、`anthropic-xlsx` 大 skill 和可见性配置。 |
+| [Skill 模块设计](docs/功能开发/skill-system.md) | 说明当前内置 `anthropic-xlsx`、workspace/domain skill 和可见性配置。 |
 | [Gold Cases Benchmark](docs/实验评测/gold-cases/README.md) | gold40、badcase122、query100 主线 benchmark 入口和历史 run。 |
 | [Generic Table Tasks](docs/实验评测/generic-table-tasks/README.md) | 通用 workbook/artifact 任务评测入口，当前包含 Hermes `anthropic-xlsx` run 与产物归档。 |
 | [Run History](docs/实验评测/gold-cases/runs/README.md) | 已归档的 benchmark 与专项 case 对比报告。 |

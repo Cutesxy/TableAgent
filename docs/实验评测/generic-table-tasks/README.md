@@ -1,6 +1,6 @@
 # Generic Table Tasks Eval
 
-> 最后更新：2026-06-22
+> 最后更新：2026-06-23
 
 本目录维护 TableClaw 第二阶段的通用表格上下游任务评测。它和四川财资 `gold-cases/` 主线不同：这里不评估某个业务 domain pack 的拟合效果，而是观察 TableClaw 在不依赖业务知识时，能否通过通用 spreadsheet skill、inspect、代码执行和 artifact 验证完成真实复杂表格任务。
 
@@ -20,12 +20,11 @@
 
 ## Skill 可见性原则
 
-通用评测应避免加载四川财资业务知识：
+通用评测以当前 nanobot 内置的唯一表格 skill 为主：
 
-- 禁用 `sichuan-finance` workspace/domain skill。
-- 禁用早期手写的轻量 table skills：`table-read`、`table-clean`、`table-validate`、`table-report`、`table-formula-debug`、`table-chart`。
-- 禁用旧的 `xlsx` 宽兜底 skill。
-- 仅保留 `anthropic-xlsx` 作为主要 spreadsheet skill，用于观察大通用表格 skill 能否覆盖复杂 workbook artifact 任务。
+- `anthropic-xlsx`
+
+它用于观察一个完整 spreadsheet skill 是否能覆盖复杂 workbook artifact 任务。业务或客户专属知识应通过 domain pack / workspace skill 插拔，不进入通用 workbook skill。
 
 当前配置：
 
@@ -37,14 +36,14 @@ nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
 
 | Run | 任务 | 配置 | 结果 |
 | --- | --- | --- | --- |
-| [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx-only` | 成功产出 3 个 workbook artifact，并归档日志、token、tool trace 和预览图 |
+| [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx` | 成功产出 3 个 workbook artifact，并归档最终回复、日志、token、tool trace、预览图和 LV/LVMH 数据来源边界 |
+| [PKU Admission Score Workbook Eval](pku-admission-real-user-20260623.md) | 北京大学各省各专业录取情况表清洗、公式统计、图表生成 | 默认真实用户配置 | 成功产出 1 个 workbook artifact，包含清洗数据、308 个公式和 4 张 Excel 原生图表，并归档最终回复、日志、token、tool trace 和预览图 |
 
 ## 当前 Artifact 评测口径
 
 本目录当前是 v0 smoke/eval，先评估以下内容：
 
 - 是否正确识别并读取通用 spreadsheet skill。
-- 是否避免调用四川财资 domain knowledge。
 - 是否能 inspect 原始 workbook，并恢复真实 sheet/section 结构。
 - 是否产出用户要求的文件。
 - 输出 workbook 是否包含合理 sheet、关键字段和公式。
@@ -57,7 +56,7 @@ nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
 - 关键单元格/关键公式断言。
 - 渲染截图检查：标题、表格、图表是否可读。
 - 数据来源校验：外部 peer 数据是否有来源或明确标注为估算。
-- 与 small-skill / no-skill / 其他模型的 A/B 对比。
+- 与 no-spreadsheet-skill / 未来 TableClaw native workbook skill / 其他模型的 A/B 对比。
 
 ## 维护规则
 

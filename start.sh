@@ -40,7 +40,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 cd "$NANOBOT_DIR"
-if [ -x "$SYNC_DOMAIN_PACK" ]; then
+if [ "${TABLECLAW_SYNC_DOMAIN_PACK:-1}" != "0" ] && [ -x "$SYNC_DOMAIN_PACK" ]; then
   "$SYNC_DOMAIN_PACK" "$DOMAIN_PACK_DIR" "$WORKSPACE_DIR"
 fi
 source "$VENV_ACTIVATE"

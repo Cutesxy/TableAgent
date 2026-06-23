@@ -206,9 +206,9 @@ Claude for Excel 与普通表格助手的区别在于：它不是只回答“这
 
 对 TableClaw 的启发：
 
-> 采用“Core Agent / Runtime + Context / Storage + Generic Table Tools + Domain Pack + Harness”的路线。
+> 采用“Core Agent / Runtime + Context / Storage + Generic Table Tools + Workbook Skill + Domain Pack + Harness”的路线。
 
-底层运行时负责通用 agent 编排、session、workspace、tool/skill loading、trace 和 harness；上层沉淀 `table-read`、`table-clean`、`table-formula-debug`、`table-chart`、`table-report`、`table-validate` 等表格流程能力；通过 memory/context/RAG 降低重复探索和 token 消耗，并通过 eval harness 记录正确率、耗时、token、可追溯性和人工干预情况。
+底层运行时负责通用 agent 编排、session、workspace、tool/skill loading、trace 和 harness；通用工具层沉淀 retrieve、inspect、catalog、matrix、rank、filter、time-series、validate 等可执行能力；workbook skill 层承接清洗、重构、公式、建模、图表和 artifact 交付流程；domain pack 层承接行业/客户口径和 badcase 经验。通过 memory/context/RAG 降低重复探索和 token 消耗，并通过 eval harness 记录正确率、耗时、token、可追溯性和人工干预情况。
 
 ### 1.3 专门的 Table Agent / Spreadsheet Agent 论文系统
 
@@ -291,7 +291,7 @@ SpreadsheetBench 是当前很值得参考的 benchmark：它强调真实业务 s
 
 - 业务 QA 任务中，domain pack + deterministic tools 的收益已经明确；继续提升应聚焦错误归因、召回和 reconciliation，而不是把业务知识写进通用工具。
 - 通用 artifact 任务中，大 spreadsheet skill 能提升 workbook 交付质量，但 token / latency / 脚本执行成本更高，且需要 artifact 级评测。
-- 轻量 TableClaw skills 与 `anthropic-xlsx` 大 skill 不应被看成二选一：前者适合高频、低成本、可评测 QA；后者适合复杂 workbook 产物生成。
+- nanobot 内置表格 skill 当前已收敛为 `anthropic-xlsx`：复杂 workbook 产物先用完整 spreadsheet skill 承接；高频 QA/抽取/排名/时间序列由 generic tools 执行；后续若再拆 TableClaw native skill，必须由评测证明收益。
 
 ---
 
@@ -301,8 +301,8 @@ SpreadsheetBench 是当前很值得参考的 benchmark：它强调真实业务 s
 | --- | --- | --- | --- | --- |
 | 表格理解 | 强在当前 APP 上下文、原生 range/cell/formula | 能处理文件，但常靠临时脚本 | 已支持 xlsx 结构读取和多级表头任务 | schema cache + 局部检索 + 多 sheet |
 | 表格操作 | 强在原生 API 写回、格式、图表 | 能改文件，但验证和回滚需自建 | 当前主要读/分析，编辑类未系统评测 | 可回滚副本编辑 + diff + validate |
-| 公式能力 | Excel/Sheets 插件有原生公式上下文 | 可用 openpyxl/LibreOffice 检查 | 已有 `table-formula-debug` skill，但未跑真实公式任务 | 公式依赖图 + 重算 + 错误扫描 |
-| 图表/报告 | 插件体验好，写回方便 | 可生成文件/图表，但质量需验证 | 已有 `table-chart` / `table-report` skill | chart-ready table + dashboard harness |
+| 公式能力 | Excel/Sheets 插件有原生公式上下文 | 可用 openpyxl/LibreOffice 检查 | `anthropic-xlsx` 提供公式/重算流程，真实公式任务仍需系统评测 | 公式依赖图 + 重算 + 错误扫描 |
+| 图表/报告 | 插件体验好，写回方便 | 可生成文件/图表，但质量需验证 | `anthropic-xlsx` 可生成 workbook artifact，图表/报告还需 artifact judge | chart-ready table + dashboard harness |
 | Workflow | 插件逐渐具备 Agent Mode/Skill/Connector | 通用 Agent 最强，但不表格专精 | 已记录 skill sequence 和 tool timeline | 显式 table workflow router |
 | Context | 插件有 workbook/session 上下文 | 通用 Agent 依赖上下文压缩和文件读取 | 有 session/memory/usage，未做表格 cache | schema memory + RAG + result cache |
 | 验证/日志 | Claude Log / Office 操作历史等逐渐出现 | 工具轨迹强，但表格验证要补 | 有 eval JSON、tool timeline、usage | cell citation + diff + rollback |
@@ -371,18 +371,13 @@ Excel / WPS / 飞书 / 钉钉 插件
 5. `eval_test/run_eval.py` 记录 skill 读取顺序、工具轨迹、token usage、latency、自动评分。
 6. 运行时 usage 追加到 `workspace/usage/usage.jsonl`。
 
-新增轻量 skill 池：
+当前内置 spreadsheet skill：
 
 | Skill | 阶段 | 触发任务 |
 | --- | --- | --- |
-| `table-read` | structure | sheet、行列数、表头、合并单元格、指标列定位 |
-| `table-clean` | cleaning | 空行、合计行、缺失值、类型转换、重复项 |
-| `table-validate` | evidence | 口径校验、行列计数、公式/数值复核、证据说明 |
-| `table-report` | reporting | 管理摘要、风险列表、建议、结论解释 |
-| `table-formula-debug` | formula | 公式读取、错误值、引用修复、一致性检查 |
-| `table-chart` | visualization | 图表选择、chart-ready table、dashboard 输出 |
-| `xlsx` | broad spreadsheet | Codex 原文 spreadsheet skill，作为当前宽能力兜底 |
 | `anthropic-xlsx` | workbook artifact | Anthropic-style 大 spreadsheet skill，适合清洗、公式、建模、格式化和可交付 `.xlsx` |
+
+已删除的 `xlsx`、`table-read`、`table-clean`、`table-validate`、`table-report`、`table-formula-debug`、`table-chart` 等小 skill 不再作为 nanobot 当前骨架能力维护。对应能力如果稳定复用，应沉淀为 generic tools 或未来的 TableClaw native workbook skill，而不是让模型在多个碎片化 skill 名称之间路由。
 
 #### 通用 workbook/artifact 流程
 
@@ -390,7 +385,7 @@ Hermes smoke 暂时采用以下路径：
 
 ```text
 用户给复杂 workbook 任务
--> 使用 anthropic-xlsx-only 配置隐藏轻量 table skills
+-> 当前骨架只暴露 anthropic-xlsx 作为通用 spreadsheet skill
 -> 模型读取 anthropic-xlsx/SKILL.md
 -> tableclaw_inspect 识别 workbook 结构
 -> Python/openpyxl/pandas/LibreOffice 执行清洗、重构、建模
@@ -403,7 +398,7 @@ Hermes smoke 暂时采用以下路径：
 - 需要补 artifact 评测：sheet、公式、格式、图表、重算结果、文件可打开性。
 - 需要补数据来源评测：外部同行数据不能由模型“估算后当真”。
 - 需要补渲染/截图检查：复杂 workbook 和图表不能只看文件存在。
-- 需要评估是否禁用领域 workspace skill，避免通用任务被四川财资 skill 摘要污染。
+- 需要保持通用 workbook skill 与领域包的边界清晰：通用任务默认走 workbook skill + generic tools；领域任务才挂载相应 domain pack。
 
 ### 4.4 单轮与多轮场景
 
@@ -439,7 +434,7 @@ v0 先设计和验证，不急着重写底层 runtime。
 
 1. 先不做向量库，写 `workspace/table_cache/` JSON 缓存 schema。
 2. 缓存 key 使用文件路径 + mtime + size + sheet。
-3. `table-read` 阶段生成 schema summary。
+3. `tableclaw_inspect` / catalog 阶段生成 schema summary。
 4. 后续 query 先查 schema cache，再决定是否重新 inspect。
 5. eval 增加 cached/non-cached 对照，观察 token 和耗时差异。
 
@@ -460,7 +455,7 @@ v0 先设计和验证，不急着重写底层 runtime。
 Harness v0 已有：
 
 - 文件路径拼接：`render_prompt` 自动把 `{table_path}` 变成 eval dataset 绝对路径。
-- skill-on/off：两份 nanobot config 控制 skill 是否可见。
+- spreadsheet-skill/no-spreadsheet-skill：两份 nanobot config 控制 spreadsheet skill 是否可见。
 - 轨迹日志：tool timeline、skill read、skill sequence、first skill step、tools used。
 - 结果评分：required facts + numeric checks。
 - token usage：prompt/completion/total/cached。
@@ -484,7 +479,7 @@ Harness v0 已有：
 - 四川财资主线：gold40、badcase122、query rewrite 100 系列，并支持 gold/task issue 排除。
 - 通用工具观测：记录 retrieve / inspect / matrix / rank / filter / time_series / domain_knowledge 等工具轨迹、耗时和 token。
 - skill 观测：记录 skill read、skill sequence、工具调用路径和最终答案。
-- Hermes artifact smoke：`anthropic-xlsx-only` 模式下完成复杂 workbook 清洗、同行对标和预测模型输出。
+- Hermes artifact smoke：`anthropic-xlsx` 模式下完成复杂 workbook 清洗、同行对标和预测模型输出。
 
 近期扩展目标：
 
@@ -509,9 +504,7 @@ Harness v0 已有：
 - `start.sh` / `eval.sh` / `eval_gold_parallel.sh` 一键入口。
 - DashScope `deepseek-v4-pro` 配置。
 - 项目内 workspace、usage log、schema cache、table catalog。
-- builtin Codex `xlsx` skill。
 - builtin `anthropic-xlsx` skill。
-- 6 个轻量 TableClaw table skills。
 - 四川财资 domain pack + `tableclaw_domain_knowledge`。
 - gold40 / badcase122 / query100 主线评测与 gold/task issue 排除口径。
 - Hermes 通用 workbook/artifact smoke。

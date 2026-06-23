@@ -12,13 +12,7 @@
       "botName": "TableClaw",
       "botIcon": "TC",
       "disabledSkills": [
-        "xlsx",
-        "table-read",
-        "table-clean",
-        "table-validate",
-        "table-report",
-        "table-formula-debug",
-        "table-chart"
+        "anthropic-xlsx"
       ]
     }
   },

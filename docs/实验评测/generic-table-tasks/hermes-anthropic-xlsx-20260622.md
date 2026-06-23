@@ -15,8 +15,10 @@
 
 - 模型能否识别这是通用 spreadsheet/workbook 任务。
 - 模型是否会选择并读取 `anthropic-xlsx`。
-- 在禁用小 table skills 和业务 domain skill 的评测设计下，模型能否完成复杂 workbook artifact 任务。
+- 在通用 spreadsheet skill 可见性设计下，模型能否完成复杂 workbook artifact 任务。
 - 是否能记录完整 tool trace、skill 选择、耗时、token、产物和验证结果。
+
+本次评测不是自动打分 benchmark，而是 artifact smoke / workflow trace：重点观察复杂 workbook 任务能否被拆解、执行、验证和归档。
 
 ## 2. 用户任务
 
@@ -28,24 +30,11 @@
 
 ## 3. Skill / Tool 可见性设计
 
-本评测线的目标是通用 table task，不走四川财资 domain pack。
-
-当前归档配置禁用：
-
-- `sichuan-finance`
-- `xlsx`
-- `table-read`
-- `table-clean`
-- `table-validate`
-- `table-report`
-- `table-formula-debug`
-- `table-chart`
-
-主要可见 spreadsheet skill：
+本评测线的目标是通用 table artifact task。当前 nanobot 骨架中，表格相关 builtin skill 已收敛为：
 
 - `anthropic-xlsx`
 
-说明：Hermes 本次运行时已经隐藏 `xlsx` 与早期小 table skills；归档本文档时，`anthropic-xlsx-only` 配置进一步把 `sichuan-finance` 也加入 `disabledSkills`，作为后续通用评测的标准配置。
+这意味着模型在复杂 workbook 清洗、重构、建模和 `.xlsx` 交付任务上，主要依赖一个完整的 spreadsheet skill，而不是在多个碎片化表格 skill 之间做选择。
 
 这次 Hermes run 的实际 trace 显示，模型第一步就读取了 `anthropic-xlsx`：
 
@@ -53,8 +42,6 @@
 Reading the anthropic-xlsx skill
 ↳ read …/skills/anthropic-xlsx/SKILL.md
 ```
-
-工具链中没有出现 `tableclaw_domain_knowledge`，说明本任务没有进入四川财资业务知识路径。
 
 ## 4. 运行统计
 
@@ -104,7 +91,41 @@ Usage 记录：
 | 工具调用数 | 16 |
 | 结束状态 | completed |
 
-## 5. 工具轨迹
+## 5. DeepSeek-V4-Pro 最终回复
+
+最终面向用户的回复已从 session `cli:hermes-anthropic-20260622-155512` 抽取并归档：
+
+- [final_assistant_response.md](artifacts/hermes-anthropic-xlsx-20260622/logs/final_assistant_response.md)
+
+核心内容如下：
+
+```markdown
+## 任务完成总结
+
+### 使用的 Skill
+**anthropic-xlsx** — 读取了 `/skills/anthropic-xlsx/SKILL.md`，用于指导 Excel 文件的读取、结构化、公式化、样式化输出。
+
+### 调用的工具链
+
+| 步骤 | 工具 | 用途 |
+|------|------|------|
+| 1 | `read_file` | 读取 anthropic-xlsx skill |
+| 2 | `tableclaw_inspect` | 快速扫描表结构（5157行×20列，含合并单元格） |
+| 3 | `exec` (python/openpyxl) ×4 | 探索原始数据布局、发现5个数据段 |
+| 4 | `exec` (python/openpyxl) ×3 | 构建3个输出文件 |
+| 5 | `exec` (python) | 验证3个输出文件结构和数据完整性 |
+
+### 关键中间判断
+
+1. 原始表实际是 5 个独立数据段堆叠在 Sheet1 中（日频股价 / 年度经营 / 关键事件），且 F-T 列在日频段为空，年频段 F-M 列有数据。
+2. 按数据段拆分为 5 个独立 Sheet（日频股价数据、年度经营数据、关键事件、结构演进、概览KPI）。
+3. LVMH 日频股价已存在于原表中，但 Kering/Richemont 的财务数据无法联网获取；采用公开财报估算值 + 黄色底色 + `†` 标记 + 独立“数据来源与假设”Sheet。
+4. 预测模型通过跨 Sheet 引用连接到可调整假设面板，修改蓝色输入单元格即可自动重算。
+```
+
+最终回复给出了 3 个输出文件的功能说明，并明确说明 `Luxury_Peer_Benchmarking.xlsx` 中 LVMH/Kering/Richemont 的 FY2025 经营数据无法通过实时 API 获取，已在 workbook 中以 `†` 和黄色底色标注为估算值。
+
+## 6. 工具轨迹
 
 | 阶段 | 工具 / 动作 | 作用 |
 | --- | --- | --- |
@@ -125,11 +146,12 @@ Usage 记录：
 完整日志：
 
 - [run_cli_output.txt](artifacts/hermes-anthropic-xlsx-20260622/logs/run_cli_output.txt)
+- [final_assistant_response.md](artifacts/hermes-anthropic-xlsx-20260622/logs/final_assistant_response.md)
 - [usage.json](artifacts/hermes-anthropic-xlsx-20260622/logs/usage.json)
 - [tool result 1](artifacts/hermes-anthropic-xlsx-20260622/tool-results/call_b8ab9b4d60f8494293bab51e.txt)
 - [tool result 2](artifacts/hermes-anthropic-xlsx-20260622/tool-results/call_6ac31c9bbb9842b59757b561.txt)
 
-## 6. 关键中间判断
+## 7. 关键中间判断
 
 模型没有把原始 workbook 当成一个扁平表，而是识别为多段堆叠结构：
 
@@ -151,9 +173,9 @@ Usage 记录：
 - 预测模型首次长脚本执行失败后，模型改为写入脚本文件再执行，恢复成功。
 - 对标任务中，原表只包含 Hermès 和 LVMH 股价，不包含完整 Kering / Richemont 经营数据；模型在输出中将外部 peer 数据标为估算，并提供假设说明。
 
-## 7. 输出产物
+## 8. 输出产物
 
-### 7.1 清洗标准化 Workbook
+### 8.1 清洗标准化 Workbook
 
 文件：
 
@@ -180,7 +202,7 @@ Usage 记录：
 - 将年频经营数据从错位区域重构为规范表。
 - 保留结构演进与关键事件信息。
 
-### 7.2 奢侈品同行对标 Workbook
+### 8.2 奢侈品同行对标 Workbook
 
 文件：
 
@@ -207,7 +229,7 @@ Usage 记录：
 - 对非源表数据做估算标记和来源假设说明。
 - 后续若接入外部财报/RAG，应替换估算 peer data。
 
-### 7.3 2026-2030 预测模型 Workbook
+### 8.3 2026-2030 预测模型 Workbook
 
 文件：
 
@@ -234,33 +256,57 @@ Usage 记录：
 - 覆盖收入、成本、经营利润、净利润、门店、人效和情景分析。
 - 公式数量较多，说明模型具备可调参和可审计基础。
 
-## 8. 结果判断
+## 9. LV / LVMH 对标数据来源核验
 
-本次 run 判定为：**通过 smoke / artifact eval v0**。
+用户问题中提到“补充 LV 等同赛道头部企业的同周期经营数据”。本次 run 中的实际处理应拆成两类：
+
+| 数据类型 | 是否来自原表 | 是否联网获取 | 本次处理 |
+| --- | --- | --- | --- |
+| LVMH 日频股价 `LVMH (EUR)` / `MC.PA` | 是 | 否 | 来自原 workbook `Sheet1 · 长周期增长主线` 的日频段，已写入 `Hermes_Cleaned_Standardized.xlsx`。 |
+| LVMH FY2025 营收、利润、员工、门店、市值、估值倍数 | 否 | 否 | DeepSeek-V4-Pro 在生成 `Luxury_Peer_Benchmarking.xlsx` 时写入估算值，并在 workbook 中以 `†`、黄色底色和“数据来源与假设”Sheet 标注。 |
+| Kering / Richemont 经营与估值数据 | 否 | 否 | 同样是估算值，不是自动召回或实时校验数据。 |
+
+关键结论：
+
+- 本轮 trace 中没有 `web_search`、browser、联网检索或外部财报下载工具调用。
+- 原始 workbook 本身包含 Hermès 年度经营数据和 LVMH 日频股价数据；不包含 LV/LVMH 完整同周期经营财务指标。
+- `Luxury_Peer_Benchmarking.xlsx` 的 peer operating metrics 是模型根据公开常识/估算口径搭建的分析框架，而不是已验证事实数据库。
+- 因此，本次对标产物适合作为“结构化框架 smoke 成功”，不适合作为“同行财务数据准确性已验证”的结论。
+
+对应 workbook 已在以下位置明确标注：
+
+- `对标分析总览!A2:A3`：说明 LVMH/Kering/Richemont 数据为公开财报摘要及行业估算，非实时 API 数据。
+- `数据来源与假设` Sheet：逐项列出 LVMH、Kering、Richemont 的估算说明。
+
+后续若要把该任务升级为正式 eval，需要接入外部财报/RAG/联网数据源，并增加 peer data source citation 校验。
+
+## 10. 结果判断
+
+本次 run 判定为：**通过通用 workbook artifact smoke v0**。
 
 通过点：
 
 - 模型正确选择并读取 `anthropic-xlsx`。
-- 没有调用四川财资 `tableclaw_domain_knowledge`。
 - 识别并修正真实 sheet 名。
 - 识别堆叠表结构，并拆分为语义 sheet。
 - 成功输出 3 个可用 `.xlsx` artifact。
 - 输出文件包含公式、假设面板、来源说明和结构化 sheet。
-- 运行日志、tool trace、usage 和预览图已归档。
+- 最终用户回复、运行日志、tool trace、usage 和预览图已归档。
+- 对无法验证的同行经营数据做了估算标记，没有直接伪装为已验证真实数据。
 
-不足：
+边界：
 
 - 耗时和 token 很高：约 695 秒、662,811 tokens，不适合作为高频 QA 主路径。
-- 同行对标中的 Kering / Richemont 等 peer 数据不是从可靠外部数据源自动召回，而是估算框架。
-- 当前验证是结构性检查，还没有 LibreOffice 重算 / 公式错误扫描 / workbook render 全量检查。
-- `anthropic-xlsx` 大 skill 更适合复杂 artifact 任务，不适合每轮都作为 always skill。
+- 同行对标中的 LVMH/Kering/Richemont 经营与估值数据不是从可靠外部数据源自动召回，而是估算框架。
+- 当前验证主要是结构性检查和 openpyxl 可打开性检查，还没有接入 LibreOffice 重算、完整公式错误扫描和全 sheet render 检查。
+- 这条 run 能证明通用 workbook artifact workflow 可走通；不能证明同行财务数据源的真实性，也不能作为自动化 benchmark 准确率。
 
-## 9. 后续改进
+## 11. 后续改进
 
 下一轮通用 table task eval 应补：
 
 - artifact checker：自动检查 workbook 是否可打开、公式是否报错、关键 sheet / header / formula 是否存在。
 - render checker：把关键 sheet 渲染为截图，检查是否空白、截断、不可读。
 - external data/RAG：同行对标必须接入可验证外部数据源，不允许把估算当作事实。
-- A/B 对比：`anthropic-xlsx-only` vs small table skills vs no skill。
+- A/B 对比：`anthropic-xlsx` vs no spreadsheet skill vs 未来 TableClaw native workbook skill。
 - 多任务集：至少增加 5-10 个非四川财资真实 workbook 任务，覆盖清洗、公式、图表、报告、PPT 上游数据。

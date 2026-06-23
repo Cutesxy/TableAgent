@@ -1,6 +1,6 @@
 # 参考 Spreadsheet Skills 分析
 
-> 最后更新：2026-06-22
+> 最后更新：2026-06-23
 >
 > 用途：比较 `skills/` 下三个外部参考表格 skill，判断哪些能力适合吸收到 TableClaw Core Table Skill。
 
@@ -8,7 +8,7 @@
 
 三个参考 skill 不建议长期整包照搬进 TableClaw。更合理的方式是吸收各自强项，沉淀成 TableClaw 自己的核心表格流程。
 
-当前工程状态有一个阶段性例外：`anthropic_xlsx_skill/` 已被复制为 builtin `nanobot/nanobot/skills/anthropic-xlsx/`，用于第二阶段通用 workbook/artifact 任务实验。这是为了快速验证复杂 `.xlsx` 清洗、公式、格式、建模和交付型 artifact 能力，不代表最终产品必须长期依赖该外部 skill 原文。
+当前工程状态有一个阶段性例外：`anthropic_xlsx_skill/` 已被复制为 builtin `nanobot/nanobot/skills/anthropic-xlsx/`，用于第二阶段通用 workbook/artifact 任务实验。这是为了快速验证复杂 `.xlsx` 清洗、公式、格式、建模和交付型 artifact 能力，不代表最终产品必须长期依赖该外部 skill 原文。Codex / Kimi spreadsheet skills 仅作为参考资料，不再作为 nanobot builtin skill 维护。
 
 | 参考 skill | 核心定位 | 主要依赖 | 最适合吸收的能力 | 不适合直接照搬的原因 |
 | --- | --- | --- | --- | --- |
@@ -22,7 +22,7 @@
 TableClaw Core Table Skill v0
 ```
 
-当前已先把 Codex 单文件 skill 放入 `nanobot/nanobot/skills/xlsx/SKILL.md`，并把 Anthropic spreadsheet skill 放入 `nanobot/nanobot/skills/anthropic-xlsx/SKILL.md`。前者作为宽能力兜底，后者作为复杂 workbook/artifact 路线实验。后续仍应吸收三者强项，沉淀成 TableClaw 自己的核心表格流程。
+当前 nanobot 骨架只保留 Anthropic-style spreadsheet skill：`nanobot/nanobot/skills/anthropic-xlsx/SKILL.md`。早期 `xlsx` / 小 table skills 已清理，避免在通用 workbook 任务中制造过多 skill 路由噪声。后续仍应吸收 Codex、Kimi、Anthropic 三者强项，沉淀成 TableClaw 自己的核心表格流程。
 
 ## Codex Spreadsheets Skill
 
@@ -231,7 +231,7 @@ nanobot/nanobot/skills/anthropic-xlsx/
 nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
 ```
 
-该配置隐藏 `xlsx` 与 6 个轻量 table skills，用于观察大 spreadsheet skill 是否能独立指导复杂 workbook artifact 任务。Hermes smoke 已验证它能产出清洗表、同行对标表和 2026-2030 预测模型。
+2026-06-23 清理后，nanobot 内置表格 skill 只保留 `anthropic-xlsx`。该配置用于保持通用 workbook/artifact 评测路径纯净，观察一个完整 spreadsheet skill 是否能独立指导复杂 workbook artifact 任务。Hermes smoke 已验证它能产出清洗表、同行对标表和 2026-2030 预测模型。
 
 注意事项：
 
@@ -261,7 +261,7 @@ skill 适合写流程，但复杂检查应该逐步工具化。
 | Tool | 来源灵感 | 作用 |
 | --- | --- | --- |
 | `table_inspect` | Kimi inspect + Codex inspect | 输出 sheets、维度、表头、合并单元格、样例行 |
-| `table_query` | 当前 xlsx skill + openpyxl | 根据 period/metric/filter/rank 精确查询 |
+| `table_query` | openpyxl + 当前 matrix/rank 工具 | 根据 period/metric/filter/rank 精确查询 |
 | `table_formula_check` | Kimi recheck + Anthropic recalc | 检查公式错误和公式缓存 |
 | `table_reference_check` | Kimi reference-check | 检查异常公式引用 |
 | `table_render_preview` | Codex render | 生成可视化预览，用于编辑/交付前检查 |

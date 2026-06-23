@@ -1,0 +1,3688 @@
+{
+  "cache_version": 1,
+  "cache_hit": false,
+  "cache_file": "/Users/hxy/Desktop/TableClaw/workspace/table_cache/tbl_6875f1fb2d_279321a2027d9ff7.schema.json",
+  "table_id": "tbl_6875f1fb2d",
+  "filename": "北京大学各省各专业录取情况.xlsx",
+  "path": "/Users/hxy/Desktop/TableClaw/workspace/uploads/北京大学各省各专业录取情况.xlsx",
+  "suffix": ".xlsx",
+  "size_bytes": 70612,
+  "mtime": 1782179835,
+  "scope": "unknown",
+  "subject": "unknown",
+  "month": null,
+  "sheets": [
+    {
+      "sheet": "Sheet1",
+      "max_row": 509,
+      "max_column": 8,
+      "merged_ranges": [
+        "B426:B458",
+        "B409:B425",
+        "B478:B493",
+        "B172:B185",
+        "B459:B477",
+        "B94:B107",
+        "B269:B288",
+        "B320:B331",
+        "B17:B72",
+        "B3:B16",
+        "B73:B93",
+        "B129:B146",
+        "B332:B345",
+        "B494:B509",
+        "B186:B202",
+        "B233:B252",
+        "B289:B307",
+        "B308:B319",
+        "B369:B387",
+        "B147:B169"
+      ],
+      "header_candidates": [
+        {
+          "row": 2,
+          "values": [
+            "生源地",
+            "科类（录取批次）",
+            "专业",
+            "平均分",
+            "最高分",
+            "控线",
+            "录取线差"
+          ],
+          "non_empty_count": 7,
+          "density": 0.875,
+          "numeric_ratio": 0.0,
+          "score": 7.0
+        },
+        {
+          "row": 3,
+          "values": [
+            "安徽",
+            "理(1)",
+            "生物科学",
+            "654",
+            "490",
+            "164"
+          ],
+          "non_empty_count": 7,
+          "density": 0.875,
+          "numeric_ratio": 0.571,
+          "score": 3.0
+        },
+        {
+          "row": 4,
+          "values": [
+            "理(1)",
+            "物理学类",
+            "650",
+            "660",
+            "490",
+            "160"
+          ],
+          "non_empty_count": 6,
+          "density": 0.75,
+          "numeric_ratio": 0.667,
+          "score": 2.0
+        },
+        {
+          "row": 5,
+          "values": [
+            "理(1)",
+            "工商管理类",
+            "647",
+            "649",
+            "490",
+            "157"
+          ],
+          "non_empty_count": 6,
+          "density": 0.75,
+          "numeric_ratio": 0.667,
+          "score": 2.0
+        },
+        {
+          "row": 6,
+          "values": [
+            "理(1)",
+            "数学类",
+            "645",
+            "490",
+            "155"
+          ],
+          "non_empty_count": 6,
+          "density": 0.75,
+          "numeric_ratio": 0.667,
+          "score": 2.0
+        }
+      ],
+      "columns": [
+        {
+          "index": 1,
+          "letter": "A",
+          "header_values": [],
+          "sample_values": [],
+          "non_empty_count": 0,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "empty"
+        },
+        {
+          "index": 2,
+          "letter": "B",
+          "header_values": [
+            "生源地"
+          ],
+          "sample_values": [
+            "安徽",
+            "北京",
+            "福建",
+            "甘肃",
+            "广东"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 3,
+          "letter": "C",
+          "header_values": [
+            "科类（录取批次）"
+          ],
+          "sample_values": [
+            "理(1)",
+            "文(1)"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 4,
+          "letter": "D",
+          "header_values": [
+            "专业"
+          ],
+          "sample_values": [
+            "生物科学",
+            "物理学类",
+            "工商管理类",
+            "数学类",
+            "经济学类",
+            "化学类"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 5,
+          "letter": "E",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "654",
+            "650",
+            "647",
+            "645",
+            "644",
+            "641"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 6,
+          "letter": "F",
+          "header_values": [
+            "最高分"
+          ],
+          "sample_values": [
+            "654",
+            "660",
+            "649",
+            "645",
+            "644",
+            "647"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 7,
+          "letter": "G",
+          "header_values": [
+            "控线"
+          ],
+          "sample_values": [
+            "490",
+            "540",
+            "550",
+            "549",
+            "501",
+            "513"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 8,
+          "letter": "H",
+          "header_values": [
+            "录取线差"
+          ],
+          "sample_values": [
+            "164",
+            "160",
+            "157",
+            "155",
+            "154",
+            "151"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        }
+      ],
+      "sample_rows": [
+        [
+          "安徽",
+          "理(1)",
+          "生物科学",
+          "654",
+          "654",
+          "490",
+          "164"
+        ],
+        [
+          "理(1)",
+          "物理学类",
+          "650",
+          "660",
+          "490",
+          "160"
+        ],
+        [
+          "理(1)",
+          "工商管理类",
+          "647",
+          "649",
+          "490",
+          "157"
+        ],
+        [
+          "理(1)",
+          "数学类",
+          "645",
+          "645",
+          "490",
+          "155"
+        ],
+        [
+          "理(1)",
+          "经济学类",
+          "644",
+          "644",
+          "490",
+          "154"
+        ],
+        [
+          "理(1)",
+          "化学类",
+          "644",
+          "647",
+          "490",
+          "154"
+        ],
+        [
+          "理(1)",
+          "地质学类",
+          "641",
+          "641",
+          "490",
+          "151"
+        ],
+        [
+          "文(1)",
+          "工商管理类",
+          "647",
+          "649",
+          "540",
+          "107"
+        ]
+      ]
+    },
+    {
+      "sheet": "Sheet2",
+      "max_row": 37,
+      "max_column": 75,
+      "merged_ranges": [
+        "AX2:AZ2",
+        "BD2:BF2",
+        "AO37:AQ37",
+        "N2:P2",
+        "BJ2:BL2",
+        "BP2:BR2",
+        "Z37:AB37",
+        "AL37:AN37",
+        "H2:J2",
+        "BA37:BC37",
+        "T2:V2",
+        "Z2:AB2",
+        "E2:G2",
+        "K2:M2",
+        "B37:D37",
+        "BM37:BO37",
+        "A1:Z1",
+        "AF2:AH2",
+        "BG2:BI2",
+        "AX37:AZ37"
+      ],
+      "header_candidates": [
+        {
+          "row": 3,
+          "values": [
+            "最高分",
+            "最低分",
+            "平均分"
+          ],
+          "non_empty_count": 72,
+          "density": 0.96,
+          "numeric_ratio": 0.0,
+          "score": 72.0
+        },
+        {
+          "row": 2,
+          "values": [
+            "省份",
+            "元培计划",
+            "数学类",
+            "经济学类",
+            "生物学类",
+            "工商管理类",
+            "国际政治",
+            "物理学类",
+            "化学类",
+            "心理学类",
+            "法学",
+            "地球与空间科学类",
+            "新闻与传播类",
+            "电子信息类",
+            "英语",
+            "环境科学",
+            "环境科学（环境科学与工程）",
+            "信息管理与信息系统",
+            "工学类",
+            "公共管理类",
+            "中国语言文学类",
+            "考古学",
+            "哲学类",
+            "天文学"
+          ],
+          "non_empty_count": 26,
+          "density": 0.347,
+          "numeric_ratio": 0.0,
+          "score": 26.0
+        },
+        {
+          "row": 6,
+          "values": [
+            "福建省",
+            "662",
+            "656",
+            "660",
+            "666",
+            "661",
+            "657",
+            "640",
+            "648.5",
+            "674",
+            "664",
+            "669",
+            "634",
+            "641",
+            "633",
+            "637",
+            "648.8",
+            "655",
+            "646",
+            "649"
+          ],
+          "non_empty_count": 29,
+          "density": 0.387,
+          "numeric_ratio": 0.931,
+          "score": 2.0
+        },
+        {
+          "row": 7,
+          "values": [
+            "甘肃省",
+            "685",
+            "661",
+            "673"
+          ],
+          "non_empty_count": 5,
+          "density": 0.067,
+          "numeric_ratio": 0.6,
+          "score": 2.0
+        },
+        {
+          "row": 8,
+          "values": [
+            "广东省",
+            "688",
+            "676",
+            "682",
+            "672",
+            "667",
+            "669.5",
+            "683",
+            "673",
+            "678.5",
+            "677",
+            "668",
+            "650",
+            "657",
+            "666",
+            "662",
+            "665",
+            "668.2"
+          ],
+          "non_empty_count": 35,
+          "density": 0.467,
+          "numeric_ratio": 0.943,
+          "score": 2.0
+        }
+      ],
+      "columns": [
+        {
+          "index": 1,
+          "letter": "A",
+          "header_values": [
+            "省份"
+          ],
+          "sample_values": [
+            "安徽省",
+            "北京市",
+            "福建省",
+            "甘肃省",
+            "广东省",
+            "广西自治区"
+          ],
+          "non_empty_count": 33,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 2,
+          "letter": "B",
+          "header_values": [
+            "元培计划",
+            "最高分"
+          ],
+          "sample_values": [
+            "687",
+            "690",
+            "662",
+            "685",
+            "688",
+            "645"
+          ],
+          "non_empty_count": 29,
+          "numeric_count": 27,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 3,
+          "letter": "C",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "668",
+            "661",
+            "656",
+            "676",
+            "645",
+            "662"
+          ],
+          "non_empty_count": 28,
+          "numeric_count": 27,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 4,
+          "letter": "D",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "677.5",
+            "667.1",
+            "660",
+            "673",
+            "682",
+            "645"
+          ],
+          "non_empty_count": 28,
+          "numeric_count": 27,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 5,
+          "letter": "E",
+          "header_values": [
+            "数学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "672",
+            "692",
+            "666",
+            "662",
+            "678",
+            "696"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 6,
+          "letter": "F",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "672",
+            "678",
+            "656",
+            "667",
+            "662",
+            "661"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 7,
+          "letter": "G",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "672",
+            "683.9",
+            "661",
+            "669.5",
+            "662",
+            "663.5"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 8,
+          "letter": "H",
+          "header_values": [
+            "经济学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "694",
+            "684",
+            "683",
+            "642",
+            "895",
+            "669"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 9,
+          "letter": "I",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "678",
+            "668",
+            "673",
+            "642",
+            "895",
+            "669"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 10,
+          "letter": "J",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "686.5",
+            "674.1",
+            "678.5",
+            "642",
+            "895",
+            "669"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 11,
+          "letter": "K",
+          "header_values": [
+            "生物学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "672",
+            "700",
+            "657",
+            "634",
+            "666",
+            "663"
+          ],
+          "non_empty_count": 27,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 12,
+          "letter": "L",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "672",
+            "660",
+            "640",
+            "621",
+            "665",
+            "656"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 13,
+          "letter": "M",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "672",
+            "674.6",
+            "648.5",
+            "627.7",
+            "665.5",
+            "659.2"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 14,
+          "letter": "N",
+          "header_values": [
+            "工商管理类",
+            "最高分"
+          ],
+          "sample_values": [
+            "691",
+            "674",
+            "677",
+            "669",
+            "694",
+            "880"
+          ],
+          "non_empty_count": 22,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 15,
+          "letter": "O",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "670",
+            "664",
+            "677",
+            "650",
+            "666",
+            "880"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 16,
+          "letter": "P",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "678",
+            "669",
+            "677",
+            "659.5",
+            "680",
+            "880"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 17,
+          "letter": "Q",
+          "header_values": [
+            "国际政治",
+            "最高分"
+          ],
+          "sample_values": [
+            "686",
+            "676",
+            "最高分",
+            "国际政治"
+          ],
+          "non_empty_count": 4,
+          "numeric_count": 2,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 18,
+          "letter": "R",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "652",
+            "676",
+            "最低分"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 2,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 19,
+          "letter": "S",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "670.3",
+            "676",
+            "平均分"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 2,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 20,
+          "letter": "T",
+          "header_values": [
+            "物理学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "665",
+            "690",
+            "634",
+            "667",
+            "614",
+            "681"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 22,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 21,
+          "letter": "U",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "663",
+            "655",
+            "634",
+            "667",
+            "614",
+            "662"
+          ],
+          "non_empty_count": 23,
+          "numeric_count": 22,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 22,
+          "letter": "V",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "664",
+            "668.5",
+            "634",
+            "667",
+            "614",
+            "669.3"
+          ],
+          "non_empty_count": 23,
+          "numeric_count": 22,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 23,
+          "letter": "W",
+          "header_values": [
+            "化学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "694",
+            "641",
+            "668",
+            "661",
+            "658",
+            "690"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 24,
+          "letter": "X",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "652",
+            "633",
+            "650",
+            "646",
+            "656",
+            "687"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 25,
+          "letter": "Y",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "663.9",
+            "637",
+            "657",
+            "654",
+            "656.8",
+            "688.5"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 26,
+          "letter": "Z",
+          "header_values": [
+            "心理学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "669",
+            "668",
+            "863",
+            "661",
+            "678",
+            "650"
+          ],
+          "non_empty_count": 13,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 27,
+          "letter": "AA",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "662",
+            "668",
+            "863",
+            "661",
+            "663",
+            "650"
+          ],
+          "non_empty_count": 12,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 28,
+          "letter": "AB",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "665.4",
+            "668",
+            "863",
+            "661",
+            "670.5",
+            "650"
+          ],
+          "non_empty_count": 12,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 29,
+          "letter": "AC",
+          "header_values": [
+            "法学",
+            "最高分"
+          ],
+          "sample_values": [
+            "669",
+            "682",
+            "666",
+            "668",
+            "677",
+            "698"
+          ],
+          "non_empty_count": 9,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 30,
+          "letter": "AD",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "663",
+            "665",
+            "657",
+            "667",
+            "651",
+            "677"
+          ],
+          "non_empty_count": 8,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 31,
+          "letter": "AE",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "664.8",
+            "670.6",
+            "662",
+            "667.5",
+            "658.5",
+            "677"
+          ],
+          "non_empty_count": 8,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 32,
+          "letter": "AF",
+          "header_values": [
+            "地球与空间科学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "654",
+            "682",
+            "661",
+            "677",
+            "670",
+            "最高分"
+          ],
+          "non_empty_count": 7,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 33,
+          "letter": "AG",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "643",
+            "682",
+            "661",
+            "652",
+            "649",
+            "最低分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 34,
+          "letter": "AH",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "650.3",
+            "682",
+            "661",
+            "664.5",
+            "654.8",
+            "平均分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 35,
+          "letter": "AI",
+          "header_values": [
+            "新闻与传播类",
+            "最高分"
+          ],
+          "sample_values": [
+            "685",
+            "最高分",
+            "新闻与传播类"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 36,
+          "letter": "AJ",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "655",
+            "最低分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 37,
+          "letter": "AK",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "664.6",
+            "平均分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 38,
+          "letter": "AL",
+          "header_values": [
+            "电子信息类",
+            "最高分"
+          ],
+          "sample_values": [
+            "676",
+            "677",
+            "657",
+            "673",
+            "644",
+            "678"
+          ],
+          "non_empty_count": 32,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 39,
+          "letter": "AM",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "664",
+            "632",
+            "634",
+            "665",
+            "617",
+            "656"
+          ],
+          "non_empty_count": 31,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 40,
+          "letter": "AN",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "667.3",
+            "656.2",
+            "648.8",
+            "668.2",
+            "629.2",
+            "666"
+          ],
+          "non_empty_count": 31,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 41,
+          "letter": "AO",
+          "header_values": [
+            "英语",
+            "最高分"
+          ],
+          "sample_values": [
+            "684",
+            "最高分",
+            "英语"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 42,
+          "letter": "AP",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "652",
+            "最低分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 43,
+          "letter": "AQ",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "667.3",
+            "平均分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 44,
+          "letter": "AR",
+          "header_values": [
+            "环境科学",
+            "最高分"
+          ],
+          "sample_values": [
+            "664",
+            "666",
+            "655",
+            "668",
+            "665",
+            "858"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 19,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 45,
+          "letter": "AS",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "661",
+            "649",
+            "637",
+            "668",
+            "665",
+            "851"
+          ],
+          "non_empty_count": 20,
+          "numeric_count": 19,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 46,
+          "letter": "AT",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "662.5",
+            "658",
+            "646",
+            "668",
+            "665",
+            "854.5"
+          ],
+          "non_empty_count": 20,
+          "numeric_count": 19,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 47,
+          "letter": "AU",
+          "header_values": [
+            "环境科学（环境科学与工程）",
+            "最高分"
+          ],
+          "sample_values": [
+            "658",
+            "689",
+            "688"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 48,
+          "letter": "AV",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "645",
+            "685",
+            "678"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 49,
+          "letter": "AW",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "651",
+            "686.7",
+            "683"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 50,
+          "letter": "AX",
+          "header_values": [
+            "信息管理与信息系统",
+            "最高分"
+          ],
+          "sample_values": [
+            "654",
+            "634",
+            "667",
+            "650",
+            "627",
+            "676"
+          ],
+          "non_empty_count": 12,
+          "numeric_count": 10,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 51,
+          "letter": "AY",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "631",
+            "634",
+            "658",
+            "646",
+            "627",
+            "676"
+          ],
+          "non_empty_count": 11,
+          "numeric_count": 10,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 52,
+          "letter": "AZ",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "644.3",
+            "634",
+            "663",
+            "648",
+            "627",
+            "676"
+          ],
+          "non_empty_count": 11,
+          "numeric_count": 10,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 53,
+          "letter": "BA",
+          "header_values": [
+            "工学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "664",
+            "665",
+            "615",
+            "661",
+            "668",
+            "685"
+          ],
+          "non_empty_count": 22,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 54,
+          "letter": "BB",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "663",
+            "632",
+            "665",
+            "615",
+            "641",
+            "660"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 55,
+          "letter": "BC",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "663.3",
+            "649.5",
+            "665",
+            "615",
+            "652.3",
+            "664"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 56,
+          "letter": "BD",
+          "header_values": [
+            "公共管理类",
+            "最高分"
+          ],
+          "sample_values": [
+            "665",
+            "最高分",
+            "公共管理类"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 57,
+          "letter": "BE",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "650",
+            "最低分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 58,
+          "letter": "BF",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "658.3",
+            "平均分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 59,
+          "letter": "BG",
+          "header_values": [
+            "中国语言文学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "669",
+            "659",
+            "686",
+            "689",
+            "最高分",
+            "中国语言文学类"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 4,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 60,
+          "letter": "BH",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "639",
+            "659",
+            "682",
+            "最低分"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 4,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        }
+      ],
+      "sample_rows": [
+        [
+          "安徽省",
+          "687",
+          "668",
+          "677.5",
+          "672",
+          "672",
+          "672",
+          "694",
+          "678",
+          "686.5",
+          "672",
+          "672",
+          "672",
+          "665",
+          "663",
+          "664",
+          "669",
+          "663",
+          "664.8",
+          "676",
+          "664",
+          "667.3",
+          "664",
+          "661",
+          "662.5",
+          "664",
+          "663",
+          "663.3",
+          "662",
+          "651",
+          "656.5",
+          "安徽省"
+        ],
+        [
+          "北京市",
+          "690",
+          "661",
+          "667.1",
+          "692",
+          "678",
+          "683.9",
+          "684",
+          "668",
+          "674.1",
+          "700",
+          "660",
+          "674.6",
+          "691",
+          "670",
+          "678",
+          "686",
+          "652",
+          "670.3",
+          "690",
+          "655",
+          "668.5",
+          "694",
+          "652",
+          "663.9",
+          "669",
+          "662",
+          "665.4",
+          "682",
+          "665",
+          "670.6",
+          "654",
+          "643",
+          "650.3",
+          "685",
+          "655",
+          "664.6",
+          "677",
+          "632",
+          "656.2",
+          "684",
+          "652",
+          "667.3",
+          "666",
+          "649",
+          "658",
+          "658",
+          "645",
+          "651",
+          "654",
+          "631",
+          "644.3",
+          "665",
+          "632",
+          "649.5",
+          "665",
+          "650",
+          "658.3",
+          "669",
+          "639",
+          "653.8",
+          "654",
+          "654",
+          "654",
+          "651",
+          "651",
+          "651",
+          "637",
+          "635",
+          "636",
+          "北京市"
+        ],
+        [
+          "福建省",
+          "662",
+          "656",
+          "660",
+          "666",
+          "656",
+          "661",
+          "657",
+          "640",
+          "648.5",
+          "674",
+          "664",
+          "669",
+          "634",
+          "634",
+          "634",
+          "641",
+          "633",
+          "637",
+          "657",
+          "634",
+          "648.8",
+          "655",
+          "637",
+          "646",
+          "649",
+          "649",
+          "649",
+          "福建省"
+        ],
+        [
+          "甘肃省",
+          "685",
+          "661",
+          "673",
+          "甘肃省"
+        ],
+        [
+          "广东省",
+          "688",
+          "676",
+          "682",
+          "672",
+          "667",
+          "669.5",
+          "683",
+          "673",
+          "678.5",
+          "677",
+          "677",
+          "677",
+          "667",
+          "667",
+          "667",
+          "668",
+          "650",
+          "657",
+          "668",
+          "668",
+          "668",
+          "666",
+          "657",
+          "662",
+          "673",
+          "665",
+          "668.2",
+          "668",
+          "668",
+          "668",
+          "665",
+          "665",
+          "665",
+          "广东省"
+        ],
+        [
+          "广西自治区",
+          "645",
+          "645",
+          "645",
+          "642",
+          "642",
+          "642",
+          "634",
+          "621",
+          "627.7",
+          "669",
+          "650",
+          "659.5",
+          "614",
+          "614",
+          "614",
+          "644",
+          "617",
+          "629.2",
+          "634",
+          "634",
+          "634",
+          "615",
+          "615",
+          "615",
+          "广西自治区"
+        ],
+        [
+          "贵州省",
+          "664",
+          "662",
+          "663",
+          "662",
+          "662",
+          "662",
+          "666",
+          "665",
+          "665.5",
+          "694",
+          "666",
+          "680",
+          "681",
+          "662",
+          "669.3",
+          "678",
+          "656",
+          "666",
+          "665",
+          "665",
+          "665",
+          "654",
+          "638",
+          "647.7",
+          "贵州省"
+        ],
+        [
+          "海南省",
+          "895",
+          "895",
+          "895",
+          "880",
+          "880",
+          "880",
+          "863",
+          "863",
+          "863",
+          "868",
+          "859",
+          "863.5",
+          "858",
+          "851",
+          "854.5",
+          "830",
+          "830",
+          "830",
+          "海南省"
+        ]
+      ]
+    },
+    {
+      "sheet": "Sheet3",
+      "max_row": 36,
+      "max_column": 72,
+      "merged_ranges": [
+        "AX2:AZ2",
+        "BD2:BF2",
+        "N2:P2",
+        "H36:J36",
+        "BJ2:BL2",
+        "BP2:BR2",
+        "BJ36:BL36",
+        "AI36:AK36",
+        "AU36:AW36",
+        "H2:J2",
+        "BM2:BO2",
+        "T2:V2",
+        "Z2:AB2",
+        "E2:G2",
+        "K2:M2",
+        "E36:G36",
+        "AF2:AH2",
+        "BG2:BI2",
+        "BG36:BI36",
+        "Q36:S36"
+      ],
+      "header_candidates": [
+        {
+          "row": 3,
+          "values": [
+            "最高分",
+            "最低分",
+            "平均分"
+          ],
+          "non_empty_count": 69,
+          "density": 0.958,
+          "numeric_ratio": 0.0,
+          "score": 69.0
+        },
+        {
+          "row": 2,
+          "values": [
+            "省份",
+            "元培计划",
+            "经济学类",
+            "工商管理类",
+            "国际政治",
+            "法学",
+            "社会学类",
+            "新闻与传播类",
+            "英语",
+            "信息管理与信息系统",
+            "公共管理类",
+            "中国语言文学类",
+            "考古学",
+            "哲学类",
+            "德语",
+            "法语",
+            "俄语",
+            "日语",
+            "广播电视编导（影视编导）",
+            "历史学类",
+            "朝鲜语",
+            "西班牙语",
+            "阿拉伯语",
+            "泰语"
+          ],
+          "non_empty_count": 25,
+          "density": 0.347,
+          "numeric_ratio": 0.0,
+          "score": 25.0
+        },
+        {
+          "row": 12,
+          "values": [
+            "河北省",
+            "638",
+            "623",
+            "645",
+            "639",
+            "642",
+            "643",
+            "619",
+            "631",
+            "624",
+            "622",
+            "620",
+            "617",
+            "618.3",
+            "621",
+            "618",
+            "619.5",
+            "633",
+            "615",
+            "608",
+            "605",
+            "606.5",
+            "609",
+            "614.7"
+          ],
+          "non_empty_count": 47,
+          "density": 0.653,
+          "numeric_ratio": 0.957,
+          "score": 2.02
+        },
+        {
+          "row": 10,
+          "values": [
+            "贵州省",
+            "681",
+            "661",
+            "671",
+            "646",
+            "654.5",
+            "657",
+            "663",
+            "668",
+            "637",
+            "651.5"
+          ],
+          "non_empty_count": 17,
+          "density": 0.236,
+          "numeric_ratio": 0.882,
+          "score": 2.01
+        },
+        {
+          "row": 4,
+          "values": [
+            "安徽省",
+            "639",
+            "634",
+            "636.7",
+            "633",
+            "636",
+            "630",
+            "637",
+            "622",
+            "626.5",
+            "632",
+            "627",
+            "629.5",
+            "631",
+            "625.3",
+            "624",
+            "612",
+            "625",
+            "630.5"
+          ],
+          "non_empty_count": 35,
+          "density": 0.486,
+          "numeric_ratio": 0.943,
+          "score": 2.0
+        }
+      ],
+      "columns": [
+        {
+          "index": 1,
+          "letter": "A",
+          "header_values": [
+            "省份"
+          ],
+          "sample_values": [
+            "安徽省",
+            "北京市",
+            "福建省",
+            "甘肃省",
+            "广东省",
+            "广西自治区"
+          ],
+          "non_empty_count": 32,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 2,
+          "letter": "B",
+          "header_values": [
+            "元培计划",
+            "最高分"
+          ],
+          "sample_values": [
+            "639",
+            "650",
+            "626",
+            "657",
+            "665",
+            "638"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 3,
+          "letter": "C",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "634",
+            "636",
+            "623",
+            "626",
+            "663",
+            "638"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 4,
+          "letter": "D",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "636.7",
+            "641.5",
+            "624.5",
+            "664",
+            "638",
+            "654.5"
+          ],
+          "non_empty_count": 24,
+          "numeric_count": 23,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 5,
+          "letter": "E",
+          "header_values": [
+            "经济学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "634",
+            "650",
+            "662",
+            "665",
+            "642",
+            "681"
+          ],
+          "non_empty_count": 28,
+          "numeric_count": 26,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 6,
+          "letter": "F",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "634",
+            "636",
+            "631",
+            "662",
+            "642",
+            "661"
+          ],
+          "non_empty_count": 27,
+          "numeric_count": 26,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 7,
+          "letter": "G",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "634",
+            "642.5",
+            "646.5",
+            "663.3",
+            "642",
+            "671"
+          ],
+          "non_empty_count": 27,
+          "numeric_count": 26,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 8,
+          "letter": "H",
+          "header_values": [
+            "工商管理类",
+            "最高分"
+          ],
+          "sample_values": [
+            "639",
+            "645",
+            "659",
+            "681",
+            "647",
+            "926"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 9,
+          "letter": "I",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "633",
+            "629",
+            "659",
+            "665",
+            "647",
+            "926"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 10,
+          "letter": "J",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "636",
+            "659",
+            "673",
+            "647",
+            "926",
+            "642"
+          ],
+          "non_empty_count": 25,
+          "numeric_count": 24,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 11,
+          "letter": "K",
+          "header_values": [
+            "国际政治",
+            "最高分"
+          ],
+          "sample_values": [
+            "630",
+            "651",
+            "628",
+            "632",
+            "868",
+            "643"
+          ],
+          "non_empty_count": 22,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 12,
+          "letter": "L",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "630",
+            "634",
+            "623",
+            "632",
+            "868",
+            "619"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 13,
+          "letter": "M",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "630",
+            "642.6",
+            "625.5",
+            "632",
+            "868",
+            "631"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 14,
+          "letter": "N",
+          "header_values": [
+            "法学",
+            "最高分"
+          ],
+          "sample_values": [
+            "637",
+            "652",
+            "634",
+            "665",
+            "661",
+            "884"
+          ],
+          "non_empty_count": 32,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 15,
+          "letter": "O",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "622",
+            "621",
+            "624",
+            "662",
+            "619",
+            "646"
+          ],
+          "non_empty_count": 31,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 16,
+          "letter": "P",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "626.5",
+            "632.9",
+            "629",
+            "663.5",
+            "654.5",
+            "879.5"
+          ],
+          "non_empty_count": 31,
+          "numeric_count": 30,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 17,
+          "letter": "Q",
+          "header_values": [
+            "社会学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "632",
+            "622",
+            "657",
+            "620",
+            "638",
+            "643"
+          ],
+          "non_empty_count": 22,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 18,
+          "letter": "R",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "627",
+            "616",
+            "620",
+            "657",
+            "617",
+            "632"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 19,
+          "letter": "S",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "629.5",
+            "624",
+            "621.3",
+            "657",
+            "618.3",
+            "635"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 20,
+          "letter": "T",
+          "header_values": [
+            "新闻与传播类",
+            "最高分"
+          ],
+          "sample_values": [
+            "636",
+            "620",
+            "871",
+            "621",
+            "641",
+            "618"
+          ],
+          "non_empty_count": 20,
+          "numeric_count": 18,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 21,
+          "letter": "U",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "618",
+            "620",
+            "871",
+            "632",
+            "617",
+            "408"
+          ],
+          "non_empty_count": 19,
+          "numeric_count": 18,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 22,
+          "letter": "V",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "626.6",
+            "620",
+            "871",
+            "619.5",
+            "636.5",
+            "617.5"
+          ],
+          "non_empty_count": 19,
+          "numeric_count": 18,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 23,
+          "letter": "W",
+          "header_values": [
+            "英语",
+            "最高分"
+          ],
+          "sample_values": [
+            "632",
+            "647",
+            "623",
+            "661",
+            "663",
+            "862"
+          ],
+          "non_empty_count": 22,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 24,
+          "letter": "X",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "630",
+            "632",
+            "619",
+            "659",
+            "663",
+            "862"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 25,
+          "letter": "Y",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "631",
+            "639.3",
+            "621",
+            "660",
+            "663",
+            "862"
+          ],
+          "non_empty_count": 21,
+          "numeric_count": 20,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 26,
+          "letter": "Z",
+          "header_values": [
+            "信息管理与信息系统",
+            "最高分"
+          ],
+          "sample_values": [
+            "630",
+            "658",
+            "654",
+            "最高分",
+            "信息管理与信息系统"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 27,
+          "letter": "AA",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "606",
+            "636",
+            "654",
+            "最低分"
+          ],
+          "non_empty_count": 4,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 28,
+          "letter": "AB",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "618.3",
+            "643.3",
+            "654",
+            "平均分"
+          ],
+          "non_empty_count": 4,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 29,
+          "letter": "AC",
+          "header_values": [
+            "公共管理类",
+            "最高分"
+          ],
+          "sample_values": [
+            "635",
+            "626",
+            "662",
+            "621",
+            "644",
+            "652"
+          ],
+          "non_empty_count": 17,
+          "numeric_count": 15,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 30,
+          "letter": "AD",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "617",
+            "623",
+            "660",
+            "619",
+            "629",
+            "649"
+          ],
+          "non_empty_count": 16,
+          "numeric_count": 15,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 31,
+          "letter": "AE",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "626",
+            "624.5",
+            "661.5",
+            "620",
+            "635.3",
+            "650.5"
+          ],
+          "non_empty_count": 16,
+          "numeric_count": 15,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 32,
+          "letter": "AF",
+          "header_values": [
+            "中国语言文学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "632",
+            "650",
+            "620",
+            "648",
+            "668",
+            "633"
+          ],
+          "non_empty_count": 27,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 33,
+          "letter": "AG",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "622",
+            "628",
+            "620",
+            "648",
+            "612",
+            "637"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 34,
+          "letter": "AH",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "625.3",
+            "637.8",
+            "620",
+            "648",
+            "616",
+            "651.5"
+          ],
+          "non_empty_count": 26,
+          "numeric_count": 25,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 35,
+          "letter": "AI",
+          "header_values": [
+            "考古学",
+            "最高分"
+          ],
+          "sample_values": [
+            "618",
+            "608",
+            "622",
+            "663",
+            "652",
+            "662"
+          ],
+          "non_empty_count": 9,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 36,
+          "letter": "AJ",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "618",
+            "605",
+            "622",
+            "663",
+            "649",
+            "648"
+          ],
+          "non_empty_count": 8,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 37,
+          "letter": "AK",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "618",
+            "606.5",
+            "622",
+            "663",
+            "650.5",
+            "655"
+          ],
+          "non_empty_count": 8,
+          "numeric_count": 7,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 38,
+          "letter": "AL",
+          "header_values": [
+            "哲学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "635",
+            "659",
+            "617",
+            "618",
+            "629",
+            "615"
+          ],
+          "non_empty_count": 14,
+          "numeric_count": 12,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 39,
+          "letter": "AM",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "608",
+            "659",
+            "610",
+            "609",
+            "627",
+            "615"
+          ],
+          "non_empty_count": 13,
+          "numeric_count": 12,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 40,
+          "letter": "AN",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "619.2",
+            "659",
+            "613.5",
+            "614.7",
+            "628",
+            "615"
+          ],
+          "non_empty_count": 13,
+          "numeric_count": 12,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 41,
+          "letter": "AO",
+          "header_values": [
+            "德语",
+            "最高分"
+          ],
+          "sample_values": [
+            "624",
+            "617",
+            "407",
+            "669",
+            "622",
+            "最高分"
+          ],
+          "non_empty_count": 7,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 42,
+          "letter": "AP",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "624",
+            "617",
+            "407",
+            "663",
+            "622",
+            "最低分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 43,
+          "letter": "AQ",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "624",
+            "617",
+            "407",
+            "666",
+            "622",
+            "平均分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 44,
+          "letter": "AR",
+          "header_values": [
+            "法语",
+            "最高分"
+          ],
+          "sample_values": [
+            "630",
+            "653",
+            "407",
+            "658",
+            "527",
+            "635"
+          ],
+          "non_empty_count": 8,
+          "numeric_count": 6,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 45,
+          "letter": "AS",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "630",
+            "653",
+            "407",
+            "655",
+            "520",
+            "632"
+          ],
+          "non_empty_count": 7,
+          "numeric_count": 6,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 46,
+          "letter": "AT",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "630",
+            "653",
+            "407",
+            "656.5",
+            "524.7",
+            "633.5"
+          ],
+          "non_empty_count": 7,
+          "numeric_count": 6,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 47,
+          "letter": "AU",
+          "header_values": [
+            "俄语",
+            "最高分"
+          ],
+          "sample_values": [
+            "860",
+            "646",
+            "634",
+            "628",
+            "最高分",
+            "俄语"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 4,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 48,
+          "letter": "AV",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "860",
+            "646",
+            "634",
+            "628",
+            "最低分"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 4,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 49,
+          "letter": "AW",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "860",
+            "646",
+            "634",
+            "628",
+            "平均分"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 4,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 50,
+          "letter": "AX",
+          "header_values": [
+            "日语",
+            "最高分"
+          ],
+          "sample_values": [
+            "407",
+            "632",
+            "629",
+            "最高分",
+            "日语"
+          ],
+          "non_empty_count": 5,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 51,
+          "letter": "AY",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "407",
+            "632",
+            "629",
+            "最低分"
+          ],
+          "non_empty_count": 4,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 52,
+          "letter": "AZ",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "407",
+            "632",
+            "629",
+            "平均分"
+          ],
+          "non_empty_count": 4,
+          "numeric_count": 3,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 53,
+          "letter": "BA",
+          "header_values": [
+            "广播电视编导（影视编导）",
+            "最高分"
+          ],
+          "sample_values": [
+            "627",
+            "664",
+            "653",
+            "644",
+            "659",
+            "最高分"
+          ],
+          "non_empty_count": 7,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 54,
+          "letter": "BB",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "618",
+            "659",
+            "653",
+            "643",
+            "650",
+            "最低分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 55,
+          "letter": "BC",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "622.5",
+            "661.5",
+            "653",
+            "643.5",
+            "655.7",
+            "平均分"
+          ],
+          "non_empty_count": 6,
+          "numeric_count": 5,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 56,
+          "letter": "BD",
+          "header_values": [
+            "历史学类",
+            "最高分"
+          ],
+          "sample_values": [
+            "612",
+            "628",
+            "619",
+            "617",
+            "405",
+            "611"
+          ],
+          "non_empty_count": 13,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 57,
+          "letter": "BE",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "612",
+            "614",
+            "619",
+            "611",
+            "405",
+            "606"
+          ],
+          "non_empty_count": 12,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 58,
+          "letter": "BF",
+          "header_values": [
+            "平均分"
+          ],
+          "sample_values": [
+            "612",
+            "620.5",
+            "619",
+            "614.7",
+            "405",
+            "608.3"
+          ],
+          "non_empty_count": 12,
+          "numeric_count": 11,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 59,
+          "letter": "BG",
+          "header_values": [
+            "朝鲜语",
+            "最高分"
+          ],
+          "sample_values": [
+            "650",
+            "最高分",
+            "朝鲜语"
+          ],
+          "non_empty_count": 3,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 60,
+          "letter": "BH",
+          "header_values": [
+            "最低分"
+          ],
+          "sample_values": [
+            "636",
+            "最低分"
+          ],
+          "non_empty_count": 2,
+          "numeric_count": 1,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        }
+      ],
+      "sample_rows": [
+        [
+          "安徽省",
+          "639",
+          "634",
+          "636.7",
+          "634",
+          "634",
+          "634",
+          "639",
+          "633",
+          "636",
+          "630",
+          "630",
+          "630",
+          "637",
+          "622",
+          "626.5",
+          "632",
+          "627",
+          "629.5",
+          "632",
+          "630",
+          "631",
+          "632",
+          "622",
+          "625.3",
+          "624",
+          "624",
+          "624",
+          "612",
+          "612",
+          "612",
+          "636",
+          "625",
+          "630.5",
+          "安徽省"
+        ],
+        [
+          "北京市",
+          "650",
+          "636",
+          "641.5",
+          "650",
+          "636",
+          "642.5",
+          "645",
+          "629",
+          "636",
+          "651",
+          "634",
+          "642.6",
+          "652",
+          "621",
+          "632.9",
+          "632",
+          "616",
+          "624",
+          "636",
+          "618",
+          "626.6",
+          "647",
+          "632",
+          "639.3",
+          "630",
+          "606",
+          "618.3",
+          "635",
+          "617",
+          "626",
+          "650",
+          "628",
+          "637.8",
+          "635",
+          "608",
+          "619.2",
+          "627",
+          "618",
+          "622.5",
+          "628",
+          "614",
+          "620.5",
+          "北京市"
+        ],
+        [
+          "福建省",
+          "626",
+          "623",
+          "624.5",
+          "662",
+          "631",
+          "646.5",
+          "659",
+          "659",
+          "659",
+          "628",
+          "623",
+          "625.5",
+          "634",
+          "624",
+          "629",
+          "622",
+          "620",
+          "621.3",
+          "623",
+          "619",
+          "621",
+          "626",
+          "623",
+          "624.5",
+          "620",
+          "620",
+          "620",
+          "618",
+          "618",
+          "618",
+          "619",
+          "619",
+          "619",
+          "福建省"
+        ],
+        [
+          "甘肃省",
+          "657",
+          "626",
+          "641.5",
+          "甘肃省"
+        ],
+        [
+          "广东省",
+          "665",
+          "663",
+          "664",
+          "665",
+          "662",
+          "663.3",
+          "681",
+          "665",
+          "673",
+          "665",
+          "662",
+          "663.5",
+          "661",
+          "659",
+          "660",
+          "662",
+          "660",
+          "661.5",
+          "648",
+          "648",
+          "648",
+          "659",
+          "659",
+          "659",
+          "664",
+          "659",
+          "661.5",
+          "广东省"
+        ],
+        [
+          "广西自治区",
+          "642",
+          "642",
+          "642",
+          "647",
+          "647",
+          "647",
+          "632",
+          "632",
+          "632",
+          "634",
+          "619",
+          "626.5",
+          "620",
+          "620",
+          "620",
+          "620",
+          "612",
+          "616",
+          "617",
+          "610",
+          "613.5",
+          "广西自治区"
+        ],
+        [
+          "贵州省",
+          "681",
+          "661",
+          "671",
+          "661",
+          "646",
+          "654.5",
+          "657",
+          "657",
+          "657",
+          "663",
+          "663",
+          "663",
+          "668",
+          "637",
+          "651.5",
+          "贵州省"
+        ],
+        [
+          "海南省",
+          "909",
+          "890",
+          "899.3",
+          "926",
+          "926",
+          "926",
+          "868",
+          "868",
+          "868",
+          "884",
+          "875",
+          "879.5",
+          "871",
+          "871",
+          "871",
+          "862",
+          "862",
+          "862",
+          "860",
+          "860",
+          "860",
+          "海南省"
+        ]
+      ]
+    },
+    {
+      "sheet": "Sheet4",
+      "max_row": 348,
+      "max_column": 8,
+      "merged_ranges": [],
+      "header_candidates": [
+        {
+          "row": 1,
+          "values": [
+            "学校",
+            "学院",
+            "专业名称",
+            "06报录比",
+            "09报录比"
+          ],
+          "non_empty_count": 5,
+          "density": 0.625,
+          "numeric_ratio": 0.0,
+          "score": 5.0
+        },
+        {
+          "row": 2,
+          "values": [
+            "报名人数",
+            "录取人数",
+            "报录比",
+            "推免人数"
+          ],
+          "non_empty_count": 4,
+          "density": 0.5,
+          "numeric_ratio": 0.0,
+          "score": 4.0
+        },
+        {
+          "row": 3,
+          "values": [
+            "北京大学",
+            "数学科学学院",
+            "基础数学",
+            "0.0884",
+            "161",
+            "11",
+            "0.0683",
+            "12"
+          ],
+          "non_empty_count": 8,
+          "density": 1.0,
+          "numeric_ratio": 0.625,
+          "score": 3.0
+        },
+        {
+          "row": 4,
+          "values": [
+            "北京大学",
+            "数学科学学院",
+            "计算数学",
+            "0",
+            "20",
+            "1",
+            "0.05",
+            "10"
+          ],
+          "non_empty_count": 8,
+          "density": 1.0,
+          "numeric_ratio": 0.625,
+          "score": 3.0
+        },
+        {
+          "row": 5,
+          "values": [
+            "北京大学",
+            "数学科学学院",
+            "概率论与数理统计",
+            "0.087",
+            "46",
+            "2",
+            "0.0435",
+            "10"
+          ],
+          "non_empty_count": 8,
+          "density": 1.0,
+          "numeric_ratio": 0.625,
+          "score": 3.0
+        }
+      ],
+      "columns": [
+        {
+          "index": 1,
+          "letter": "A",
+          "header_values": [
+            "学校"
+          ],
+          "sample_values": [
+            "北京大学"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 2,
+          "letter": "B",
+          "header_values": [
+            "学院"
+          ],
+          "sample_values": [
+            "数学科学学院",
+            "工学院",
+            "物理学院",
+            "化学与分子工程学院",
+            "生命科学学院",
+            "地球与空间科学学院"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 3,
+          "letter": "C",
+          "header_values": [
+            "专业名称"
+          ],
+          "sample_values": [
+            "基础数学",
+            "计算数学",
+            "概率论与数理统计",
+            "应用数学",
+            "信号与信息处理",
+            "一般力学与力学基础"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 0,
+          "date_like_count": 0,
+          "inferred_type": "text"
+        },
+        {
+          "index": 4,
+          "letter": "D",
+          "header_values": [
+            "06报录比"
+          ],
+          "sample_values": [
+            "0.0884",
+            "0",
+            "0.087",
+            "0.0667",
+            "0.25",
+            "0.5"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 5,
+          "letter": "E",
+          "header_values": [
+            "09报录比",
+            "报名人数"
+          ],
+          "sample_values": [
+            "161",
+            "20",
+            "46",
+            "153",
+            "32",
+            "0"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 6,
+          "letter": "F",
+          "header_values": [
+            "录取人数"
+          ],
+          "sample_values": [
+            "11",
+            "1",
+            "2",
+            "7",
+            "0",
+            "6"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 7,
+          "letter": "G",
+          "header_values": [
+            "报录比"
+          ],
+          "sample_values": [
+            "0.0683",
+            "0.05",
+            "0.0435",
+            "0.0458",
+            "0.2188",
+            "0"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        },
+        {
+          "index": 8,
+          "letter": "H",
+          "header_values": [
+            "推免人数"
+          ],
+          "sample_values": [
+            "12",
+            "10",
+            "17",
+            "23",
+            "5",
+            "4"
+          ],
+          "non_empty_count": 118,
+          "numeric_count": 118,
+          "date_like_count": 0,
+          "inferred_type": "numeric"
+        }
+      ],
+      "sample_rows": [
+        [
+          "北京大学",
+          "数学科学学院",
+          "基础数学",
+          "0.0884",
+          "161",
+          "11",
+          "0.0683",
+          "12"
+        ],
+        [
+          "北京大学",
+          "数学科学学院",
+          "计算数学",
+          "0",
+          "20",
+          "1",
+          "0.05",
+          "10"
+        ],
+        [
+          "北京大学",
+          "数学科学学院",
+          "概率论与数理统计",
+          "0.087",
+          "46",
+          "2",
+          "0.0435",
+          "10"
+        ],
+        [
+          "北京大学",
+          "数学科学学院",
+          "应用数学",
+          "0.0667",
+          "153",
+          "7",
+          "0.0458",
+          "17"
+        ],
+        [
+          "北京大学",
+          "数学科学学院",
+          "信号与信息处理",
+          "0.25",
+          "32",
+          "7",
+          "0.2188",
+          "23"
+        ],
+        [
+          "北京大学",
+          "工学院",
+          "一般力学与力学基础",
+          "0.5",
+          "0",
+          "0",
+          "0",
+          "5"
+        ],
+        [
+          "北京大学",
+          "工学院",
+          "固体力学",
+          "1",
+          "1",
+          "1",
+          "1",
+          "4"
+        ],
+        [
+          "北京大学",
+          "工学院",
+          "流体力学",
+          "1.1111",
+          "4",
+          "6",
+          "1.5",
+          "18"
+        ]
+      ]
+    }
+  ],
+  "next_step": "Use the sheet/header/column candidates here to choose exact ranges or write a short deterministic calculation. Avoid read_file on .xlsx binaries."
+}
