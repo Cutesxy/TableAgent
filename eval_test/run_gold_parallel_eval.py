@@ -31,7 +31,7 @@ from nanobot.nanobot import Nanobot
 
 DEFAULT_OUTPUT_DIR = ROOT / "eval_test/results/gold_cases/parallel"
 DEFAULT_REPORT = DEFAULT_OUTPUT_DIR / "latest_report.md"
-DEFAULT_AGENT_CONFIG = ROOT / "nanobot/configs/tableclaw-bailian-dashscope-eval.json"
+DEFAULT_AGENT_CONFIG = ROOT / "nanobot/configs/tableclaw-bailian-dashscope.json"
 DEFAULT_JUDGE_MODEL = "deepseek-v4-pro"
 DEFAULT_BASE_URL = "https://dashscope.aliyuncs.com/compatible-mode/v1"
 JUDGE_PROMPT_VERSION = "data-correctness-v5-2026-06-16"

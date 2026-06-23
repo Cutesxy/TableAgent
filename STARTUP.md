@@ -148,11 +148,8 @@ TableClaw/
 
 | 配置文件 | 用途 |
 | --- | --- |
-| `tableclaw-bailian-dashscope.json` | 默认交互配置（temperature=1.0） |
-| `tableclaw-bailian-dashscope-eval.json` | 低温评测配置（temperature=0.2） |
-| `tableclaw-bailian-dashscope-no-xlsx-skill.json` | 禁用 spreadsheet skill 对照 |
-| `tableclaw-bailian-dashscope-anthropic-xlsx-only.json` | 仅保留 spreadsheet skill |
-| `tableclaw-uniapi-gpt55.json` | GPT-5.5 对照配置 |
+| `tableclaw-bailian-dashscope.json` | 默认交互配置（百炼 DashScope + DeepSeek-V4） |
+| `tableclaw-uniapi-gpt55.json` | GPT-5.5 对照配置（UniAPI） |
 | `tableclaw-xfyun-qwen36.json` | 讯飞 Qwen 备用配置 |
 
 所有配置的 API Key 均通过环境变量注入，不在文件中保存明文。
@@ -180,10 +177,10 @@ echo $env:DASHSCOPE_API_KEY      # Windows PowerShell
 
 ```bash
 # macOS/Linux
-TABLECLAW_CONFIG=nanobot/configs/tableclaw-bailian-dashscope-eval.json ./start.sh
+TABLECLAW_CONFIG=nanobot/configs/tableclaw-uniapi-gpt55.json ./start.sh
 
 # Windows
-.venv\Scripts\python -m nanobot agent --config configs/tableclaw-bailian-dashscope-eval.json
+.venv\Scripts\python -m nanobot agent --config configs/tableclaw-uniapi-gpt55.json
 ```
 
 ### Q: 如何指定 workspace 目录

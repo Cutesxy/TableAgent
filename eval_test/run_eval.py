@@ -30,7 +30,6 @@ GOLD_CASES_JSON_OUTPUT = "eval_test/results/gold_cases/latest_eval.json"
 GOLD_CASES_MD_OUTPUT = "docs/实验评测/gold-cases/latest-eval-summary.md"
 CONFIGS = {
     "skill-on": ROOT / "nanobot/configs/tableclaw-bailian-dashscope.json",
-    "skill-off": ROOT / "nanobot/configs/tableclaw-bailian-dashscope-no-xlsx-skill.json",
 }
 TRACKED_SKILLS = (
     "xlsx",

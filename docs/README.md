@@ -43,13 +43,11 @@ TableClaw 是通用 Table Agent 能力栈。当前路线是：
 
 - 启动：`./start.sh`。
 - 模型：DashScope OpenAI-compatible，默认 `deepseek-v4-pro`。
-- 交互配置：`nanobot/configs/tableclaw-bailian-dashscope.json`，保留较高 temperature 以便探索。
-- 评测配置：`nanobot/configs/tableclaw-bailian-dashscope-eval.json`，`eval_gold_parallel.sh` 默认使用低温配置以降低路径漂移。
+- 配置：`nanobot/configs/tableclaw-bailian-dashscope.json`（默认交互），另有 `tableclaw-uniapi-gpt55.json` 和 `tableclaw-xfyun-qwen36.json` 备用。
 - Workspace：`workspace/`，用户上传表放在 `workspace/uploads/`。
 - 通用工具：`tableclaw_retrieve_tables`、`tableclaw_inspect`、catalog/schema cache、matrix/time-series/rank/filter 等。
 - 领域层：`domain_packs/sichuan-finance/`，启动时同步到 `workspace/skills/` 和 `workspace/domain_knowledge/`。
 - 通用 spreadsheet skill：`nanobot/nanobot/skills/anthropic-xlsx/`，面向清洗、建模、公式、格式和交付型 Excel artifact。
-- No spreadsheet skill 对照配置：`nanobot/configs/tableclaw-bailian-dashscope-no-xlsx-skill.json`，用于禁用 `anthropic-xlsx` 做消融。
 - 主评测资产：
   - `eval_test/test_dataset/gold_cases.jsonl`：40 条人工 gold cases。
   - `eval_test/test_dataset/bad_cases.jsonl`：122 条 reviewed badcase。

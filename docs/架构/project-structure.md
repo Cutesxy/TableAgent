@@ -104,11 +104,9 @@ nanobot/
 ├── THIRD_PARTY_NOTICES.md # ⚠ 被 pyproject.toml 的 license-files 引用，不能删
 ├── pyproject.toml         # Python 包定义（含 force-include 把 bridge 打进 wheel）
 ├── configs/               # TableClaw 本地运行配置模板（通过环境变量读取密钥）
-│   ├── tableclaw-bailian-dashscope.json                 # 默认交互配置
-│   ├── tableclaw-bailian-dashscope-eval.json            # 低温 benchmark 配置
-│   ├── tableclaw-bailian-dashscope-no-xlsx-skill.json   # 对照测试：禁用 anthropic-xlsx spreadsheet skill
-│   ├── tableclaw-bailian-dashscope-anthropic-xlsx-only.json # 通用 workbook/artifact 测试：仅保留 anthropic-xlsx 表格 skill
-│   └── tableclaw-uniapi-gpt55.json                      # GPT-5.5 对照配置
+│   ├── tableclaw-bailian-dashscope.json     # 默认交互配置（百炼 DashScope + DeepSeek-V4）
+│   ├── tableclaw-uniapi-gpt55.json          # GPT-5.5 对照配置
+│   └── tableclaw-xfyun-qwen36.json          # 讯飞 Qwen 备用配置
 ├── hatch_build.py         # 自定义构建钩子
 ├── docker-compose.yml / Dockerfile / entrypoint.sh / .dockerignore   # 容器化部署
 ├── bridge/                # TypeScript 桥接服务（如 WhatsApp）；构建时打进 wheel
@@ -357,7 +355,7 @@ eval_test/
 
 | Line | Runner | Config | Skill | Dataset | 报告 |
 | --- | --- | --- | --- | --- | --- |
-| **Gold40** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/gold_cases.jsonl --concurrency 8` | `tableclaw-bailian-dashscope-eval.json` | builtin skills + TableClaw tools + domain pack | `gold_cases.jsonl` | [`docs/实验评测/gold-cases/README.md`](../实验评测/gold-cases/README.md) |
+| **Gold40** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/gold_cases.jsonl --concurrency 8` | `tableclaw-bailian-dashscope.json` | builtin skills + TableClaw tools + domain pack | `gold_cases.jsonl` | [`docs/实验评测/gold-cases/README.md`](../实验评测/gold-cases/README.md) |
 | **Badcase122** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/bad_cases.jsonl --concurrency 10` | same | same | `bad_cases.jsonl` | [`docs/实验评测/gold-cases/runs/2026-06-16-v3-final-gold-issue-adjusted.md`](../实验评测/gold-cases/runs/2026-06-16-v3-final-gold-issue-adjusted.md) |
 | **Query100** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/query_variants_100.jsonl --concurrency 10` | same | same | `query_variants_100*.jsonl` | [`docs/实验评测/gold-cases/runs/2026-06-16-v3-final-gold-issue-adjusted.md`](../实验评测/gold-cases/runs/2026-06-16-v3-final-gold-issue-adjusted.md) |
 
@@ -374,8 +372,7 @@ nanobot/nanobot/skills/
 └── anthropic-xlsx/SKILL.md             # 通用 workbook/artifact 大 skill
 ```
 
-- `tableclaw-bailian-dashscope.json`：默认可见 `anthropic-xlsx`。
-- `tableclaw-bailian-dashscope-no-xlsx-skill.json`：禁用 `anthropic-xlsx`，用于 no-spreadsheet-skill 对照。
+- `tableclaw-bailian-dashscope.json`：默认配置，所有 builtin skills 可见。
 - 业务或客户专属 skill 通过 `domain_packs/<domain>/skills/` 或 `workspace/skills/` 挂载，不进入内置表格 skill。
 
 不修改 `nanobot/nanobot/agent/loop.py` / `runner.py`，不改 skill loader。
