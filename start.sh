@@ -39,7 +39,7 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 1
 fi
 
-cd "$NANOBOT_DIR"
+cd "$ROOT_DIR"
 if [ "${TABLECLAW_SYNC_DOMAIN_PACK:-1}" != "0" ] && [ -x "$SYNC_DOMAIN_PACK" ]; then
   "$SYNC_DOMAIN_PACK" "$DOMAIN_PACK_DIR" "$WORKSPACE_DIR"
 fi

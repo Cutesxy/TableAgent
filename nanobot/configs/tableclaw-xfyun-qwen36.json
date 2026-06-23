@@ -1,7 +1,7 @@
 {
   "agents": {
     "defaults": {
-      "workspace": "/Users/hxy/Desktop/TableClaw/workspace",
+      "workspace": "./workspace",
       "provider": "openai",
       "model": "xopqwen36v35b",
       "maxTokens": 8192,
