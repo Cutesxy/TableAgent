@@ -36,8 +36,8 @@ nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
 
 | Run | 任务 | 配置 | 结果 |
 | --- | --- | --- | --- |
-| [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx` | 成功产出 3 个 workbook artifact，并归档最终回复、日志、token、tool trace、预览图和 LV/LVMH 数据来源边界 |
-| [PKU Admission Score Workbook Eval](pku-admission-real-user-20260623.md) | 北京大学各省各专业录取情况表清洗、公式统计、图表生成 | 默认真实用户配置 | 成功产出 1 个 workbook artifact，包含清洗数据、308 个公式和 4 张 Excel 原生图表，并归档最终回复、日志、token、tool trace 和预览图 |
+| [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx` | 有条件通过：结构化清洗和预测 workbook 产物成立；同行经营数据为估算框架，仍需外部数据/RAG 和 artifact checker |
+| [PKU Admission Score Workbook Eval](pku-admission-real-user-20260623.md) | 北京大学各省各专业录取情况表清洗、公式统计、图表生成 | 默认真实用户配置 | 主表 artifact 有条件通过：产出清洗数据、308 个公式和 4 张图表；full workbook 覆盖、艺术类解析和公式重算仍需补强 |
 
 ## 当前 Artifact 评测口径
 

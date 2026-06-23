@@ -25,7 +25,7 @@
 | --- | --- |
 | [generic-table-tasks/](generic-table-tasks/) | 第二阶段通用表格上下游任务评测入口。 |
 | [generic-table-tasks/hermes-anthropic-xlsx-20260622.md](generic-table-tasks/hermes-anthropic-xlsx-20260622.md) | Hermes 长表清洗、同行对标、预测模型 run；包含 xlsx 产物、JPG 预览、最终回复、日志、tool trace、token/耗时和 LV/LVMH 数据来源边界。 |
-| [generic-table-tasks/pku-admission-real-user-20260623.md](generic-table-tasks/pku-admission-real-user-20260623.md) | 北大投档分数线 workbook run；默认真实用户配置下完成脏数据识别、清洗表、公式统计和 Excel 原生图表生成。 |
+| [generic-table-tasks/pku-admission-real-user-20260623.md](generic-table-tasks/pku-admission-real-user-20260623.md) | 北大投档分数线 workbook run；默认真实用户配置下主表 artifact 有条件通过，full workbook 覆盖和艺术类解析仍需补强。 |
 
 ## 小集合回归
 

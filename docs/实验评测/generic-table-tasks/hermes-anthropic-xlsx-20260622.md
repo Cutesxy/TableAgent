@@ -282,31 +282,32 @@ Usage 记录：
 
 ## 10. 结果判断
 
-本次 run 判定为：**通过通用 workbook artifact smoke v0**。
+本次 run 判定为：**有条件通过通用 workbook artifact smoke v0**。
 
-通过点：
+这里的“通过”只针对 workflow 和 artifact 结构，不等价于同行数据事实完全正确。
 
-- 模型正确选择并读取 `anthropic-xlsx`。
-- 识别并修正真实 sheet 名。
-- 识别堆叠表结构，并拆分为语义 sheet。
-- 成功输出 3 个可用 `.xlsx` artifact。
-- 输出文件包含公式、假设面板、来源说明和结构化 sheet。
-- 最终用户回复、运行日志、tool trace、usage 和预览图已归档。
-- 对无法验证的同行经营数据做了估算标记，没有直接伪装为已验证真实数据。
+可靠完成的部分：
 
-边界：
+- **复杂源表结构恢复成功。** 模型没有把 `Sheet1 · 长周期增长主线` 当成扁平表，而是识别出日频股价、年度经营、关键事件三段堆叠结构，并把 `Sheet2 · 结构演进` 的品类、地区、门店和利润率数据纳入清洗产物。这说明 `anthropic-xlsx + openpyxl` 路线能够处理“一个 sheet 内多张逻辑表”的非标准 workbook。
+- **产物不是简单自然语言摘要，而是可打开的 workbook artifact。** 三个输出文件分别承担清洗标准化、同行对标和 2026-2030 预测模型职责；其中 `Hermes_Cleaned_Standardized.xlsx` 有 5 个语义 sheet，`Luxury_Peer_Benchmarking.xlsx` 有 5 个分析/假设 sheet，`Hermes_2026_2030_Forecast.xlsx` 有 5 个预测相关 sheet。
+- **公式化建模能力成立。** 三个 workbook 合计包含多处公式：清洗标准化表的年度经营数据 99 个公式、同行对标表 65 个公式、预测模型 207 个公式。预测模型还把假设面板与利润表、门店人力、预测总览通过跨 sheet 公式连接起来，优于只输出静态数值。
+- **错误恢复路径有效。** 首次长脚本执行失败后，模型改为写入 `build_forecast.py` 再执行，说明工具执行失败时可以从 heredoc/参数问题恢复到脚本文件方式。
+- **不确定数据有显式标注。** 对于 LVMH/Kering/Richemont 的经营和估值数据，模型没有调用联网或 RAG，也无法从源表直接获得完整指标；最终 workbook 用 `†`、黄色底色和“数据来源与假设”Sheet 标注为估算值。这一点避免了把估算数据伪装成已验证事实。
 
-- 耗时和 token 很高：约 695 秒、662,811 tokens，不适合作为高频 QA 主路径。
-- 同行对标中的 LVMH/Kering/Richemont 经营与估值数据不是从可靠外部数据源自动召回，而是估算框架。
-- 当前验证主要是结构性检查和 openpyxl 可打开性检查，还没有接入 LibreOffice 重算、完整公式错误扫描和全 sheet render 检查。
-- 这条 run 能证明通用 workbook artifact workflow 可走通；不能证明同行财务数据源的真实性，也不能作为自动化 benchmark 准确率。
+主要边界：
+
+- **同行对标任务只完成了框架，不完成事实校验。** 用户要求“补充 LV 等同赛道头部企业同周期经营数据”，但 trace 中没有 `web_search`、browser、外部财报下载或结构化数据源调用。原表只含 Hermès 经营数据和 LVMH 日频股价，不含 LVMH/Kering/Richemont 完整年度经营指标。因此 `Luxury_Peer_Benchmarking.xlsx` 适合作为分析框架 smoke，不应作为可直接交付的事实型同行研究。
+- **没有图表或 dashboard 级产物。** 这条任务没有明确要求图表，但“对标分析”和“预测模型”后续如果面向展示，仍需要 chart/dashboard sheet；本次 3 个 workbook 的 openpyxl chart count 均为 0。
+- **验证停留在结构层。** 当前归档只证明文件存在、sheet/公式数量合理、openpyxl 可读；没有 LibreOffice 重算、公式错误扫描、关键单元格断言、全 sheet render 检查，也没有人工打开 Excel/WPS 的视觉 QA。
+- **成本很高。** 本次耗时约 695 秒、662,811 tokens。对单个高价值 workbook artifact 可以接受，但不能作为高频表格 QA 的默认路径。
 
 ## 11. 后续改进
 
-下一轮通用 table task eval 应补：
+基于这条 trace，下一轮应优先补以下能力：
 
-- artifact checker：自动检查 workbook 是否可打开、公式是否报错、关键 sheet / header / formula 是否存在。
-- render checker：把关键 sheet 渲染为截图，检查是否空白、截断、不可读。
-- external data/RAG：同行对标必须接入可验证外部数据源，不允许把估算当作事实。
-- A/B 对比：`anthropic-xlsx` vs no spreadsheet skill vs 未来 TableClaw native workbook skill。
-- 多任务集：至少增加 5-10 个非四川财资真实 workbook 任务，覆盖清洗、公式、图表、报告、PPT 上游数据。
+- **External data contract。** 对“补充同行公司数据”这类任务，先判断源表是否包含所需同行经营指标；若缺失，必须进入外部数据/RAG/人工上传数据路径。产物中每个 peer metric 应有 `source_type`（源表/外部财报/估算）、source citation、更新时间和可信度标记。没有来源时只能生成分析模板，不应填充看似确定的数值。
+- **Artifact checker for formula models。** 针对预测模型自动检查：关键 sheet 是否存在、假设单元格是否被公式引用、预测期是否覆盖 2026-2030、核心公式是否跨 sheet 引用假设面板、是否出现 `#REF!/#VALUE!/#DIV/0!` 等错误。
+- **Workbook render / recalc QA。** 增加 LibreOffice 或 WPS headless 打开、重算、保存和截图流程；没有重算环境时，报告应明确标记为“结构验证通过，公式运行结果未验证”。
+- **Section detector 工具化。** Hermes 的核心难点是一个 sheet 中堆叠多个逻辑表。应把“空行分隔、标题行、重复表头、数据段范围、单位/来源说明”的检测固化成 `tableclaw_inspect` 或 catalog profile，而不是每次让模型临时写 openpyxl 探索脚本。
+- **脚本执行规范。** 复杂 workbook 任务应默认使用单个可复现 builder 脚本，并把脚本、输入摘要、输出 manifest 一并归档；长 heredoc 只适合短探测，不适合作为正式 artifact 生成方式。
+- **成本控制。** 对 workbook artifact 任务采用“两阶段上下文”：第一阶段只生成 schema/section summary 和执行计划，第二阶段根据计划执行脚本，减少多次读取大 tool result 和重复解释源表结构。

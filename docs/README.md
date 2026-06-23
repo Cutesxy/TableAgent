@@ -63,7 +63,7 @@ TableClaw 是通用 Table Agent 能力栈。当前路线是：
 - 强基模参考上限：GPT-5.5 full40 82.50% ACC，仅作为轨迹和上限参考，不与 DeepSeek 主线混口径比较。
 - 通用 workbook/artifact smoke：
   - [Hermes run](实验评测/generic-table-tasks/hermes-anthropic-xlsx-20260622.md)：验证 `anthropic-xlsx` 可以处理长表清洗、奢侈品同行对标和 2026-2030 财务预测 workbook 生成。
-  - [北大投档分数线 run](实验评测/generic-table-tasks/pku-admission-real-user-20260623.md)：默认真实用户配置下完成招生表脏数据识别、清洗、公式统计和 Excel 原生图表生成。
+  - [北大投档分数线 run](实验评测/generic-table-tasks/pku-admission-real-user-20260623.md)：默认真实用户配置下验证招生主表清洗、公式统计和 Excel 原生图表生成；full workbook 覆盖和艺术类解析仍需补强。
 
 ## 推荐阅读顺序
 

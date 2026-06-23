@@ -237,30 +237,32 @@ Excel 图表对象：
 
 ## 10. 结果判断
 
-本次 run 判定为：**通过通用 workbook artifact smoke v0**。
+本次 run 判定为：**主表 artifact 有条件通过，full workbook 覆盖不完整**。
 
-通过点：
+可靠完成的部分：
 
-- 默认真实用户配置下，模型自主读取 `anthropic-xlsx`。
-- 成功识别复杂招生表结构和典型脏数据。
-- 输出了新的 `.xlsx` workbook，保留原始数据并新增清洗、统计和图表 sheet。
-- `统计分析` sheet 保留 308 个 Excel 公式，覆盖 `COUNTIFS`、`MINIFS`、`MAXIFS`、`AVERAGEIFS`、`IFERROR`、`VLOOKUP`。
-- `可视化图表` sheet 包含 4 个 Excel 原生 chart object。
-- 日志、session、usage、tool-results、最终回复和产物已归档。
+- **默认真实用户配置下，模型能自主路由到 spreadsheet skill。** 本次没有使用 `anthropic-xlsx-only` 配置，模型仍第一步读取 `anthropic-xlsx`，并配合 `tableclaw_inspect` 与 openpyxl 脚本完成处理，说明通用 skill 的触发路径是有效的。
+- **`Sheet1` 主表的脏结构识别较充分。** 模型识别到 A 列空列、B 列省份合并单元格、第一行空行、重复表头、表头文本污染、`——` 特殊值、录取线差缺失等问题，并在 `清洗数据` sheet 中把 503 行数据规范为 8 列结构化表。
+- **产物具备用户要求的核心形态。** 输出 workbook 保留原始数据，新增 `清洗数据`、`统计分析`、`可视化图表`；`统计分析` 中有 308 个公式，覆盖 `COUNTIFS`、`MINIFS`、`MAXIFS`、`AVERAGEIFS`、`IFERROR`、`VLOOKUP`；`可视化图表` 中有 4 个 Excel 原生 chart object。
+- **模型在过程中自我修正了一个关键 artifact 错误。** 初始脚本曾把公式重算结果覆盖成静态值，模型意识到这违背用户“运用 Excel 动态函数”的要求后重新生成 workbook，保留公式。这说明 trace 中存在有效的质量反思。
+- **可追溯证据完整。** 本次归档包含 prompt、session、usage、tool-results、最终回复、输出 workbook、workbook summary 和预览图，足以复盘 skill 选择和工具调用。
 
-边界：
+主要边界：
 
-- token 和耗时仍然较高：约 530 秒、759,425 tokens。
-- 模型最终回复中提到“艺术类”，但输出 workbook 的核心统计仍主要围绕文/理和批次；艺术类是否被充分单独统计，需要后续人工打开源表进一步核验。
-- 本地没有 LibreOffice，未执行公式重算、公式错误扫描和全 workbook render 检查。
-- 当前只是单任务 artifact smoke，不代表通用教育招生类任务集的稳定准确率。
+- **没有覆盖完整 workbook。** 源文件实际包含 `Sheet1`、`Sheet2`、`Sheet3`、`Sheet4`。本次输出只保留/处理了 `Sheet1` 和 `Sheet2`：`Sheet3` 是文科专业多级表，`Sheet4` 是报录比类表。若按用户“全量数据”严格理解，这条 run 只完成了主投档表与理科专业表的 artifact，不是全 workbook 清洗。
+- **“艺术类”没有形成独立结构。** 源 `Sheet1` 中可见“艺术学理论类”等专业名，但并没有被解析成独立的艺术类批次/类别维度。最终统计主要围绕文/理和批次展开，因此满足“文理和批次”较好，满足“艺术类”不足。
+- **公式存在性已验证，公式计算结果未验证。** openpyxl 可以确认 308 个公式字符串和 chart object 存在，但本地没有 LibreOffice / WPS / Excel headless 环境，未做重算、公式错误扫描或真实打开后的图表可见性检查。
+- **图表是对象级通过，不是视觉级通过。** 当前只能确认 workbook 中有 4 个 chart objects；图表标题、系列范围、配色、标签是否在 Excel 中完全可读，还需要 render/人工打开校验。
+- **成本仍然偏高。** 本次耗时约 530 秒、759,425 tokens。对一次复杂 artifact smoke 可以接受，但如果教育表格任务批量化，需要显著降低 inspect 和脚本探索成本。
 
 ## 11. 后续改进
 
-下一轮通用 workbook artifact eval 建议补：
+基于这条 trace，下一轮应优先补以下能力：
 
-- 自动 artifact checker：验证 sheet/header/formula/chart object 是否满足任务约束。
-- LibreOffice/WPS/Excel 打开性检查：确认公式能重算，图表可见且不空白。
-- 对教育招生类表格补一个小型任务集，覆盖投档线、专业分数线、一分一段、艺术/体育类等结构。
-- 低 token 路径：对这类 workbook 先做 schema summary，再让模型基于摘要写脚本，减少反复读取 tool result。
-- 把“公式保留 vs 静态值覆盖”加入 artifact checker，避免第一次生成时公式被重算脚本覆盖。
+- **Workbook coverage checker。** 在执行前先列出所有 sheet 的用途、维度、表头层级和是否纳入处理；最终产物必须给出 `included / excluded / reason` 清单。像本次 `Sheet3`、`Sheet4` 没进入输出，应在报告中显式说明原因，而不是隐式遗漏。
+- **Category normalization。** 对招生类表格建立通用类别解析：文科、理科、艺术、体育、综合改革、本科批/一批/三批、专业组等。若源表没有独立艺术类字段，但专业名含“艺术”，应至少生成“疑似艺术相关专业”标记，而不是只按文理统计。
+- **Formula preservation checker。** 自动抽查关键统计区，确认公式不是静态值；同时检查公式中引用范围覆盖清洗数据全量行数，避免 off-by-one 或只引用部分数据。
+- **Chart binding checker。** 自动读取 chart series 的数据源范围，确认柱状图/饼图绑定到 `统计分析` 或图表数据区，而不是空白范围；有 render 环境时再做截图级视觉检查。
+- **Headless recalc / open check。** 引入 LibreOffice/WPS/Excel 打开、重算、保存和错误扫描。没有该环境时，报告必须标注“公式结构通过，计算结果未验证”。
+- **教育招生类小评测集。** 至少补 5-10 个真实 workbook，覆盖投档线、专业分数线、分省分专业表、一分一段、艺术/体育类、综合改革省份等结构，避免用单个北大样本推断通用能力。
+- **低 token 执行路径。** 对这类 workbook 先用 schema summary 和 sheet coverage plan 固化处理范围，再写脚本执行；减少反复读取长 tool result 和在对话中解释大段结构。
