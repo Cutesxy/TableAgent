@@ -92,28 +92,28 @@ Copy-Item 业务测试包\tables\*.xlsx workspace\uploads\
 ./start.sh
 ```
 
-### Windows (PowerShell)
+### Windows (Git Bash)
 
-```powershell
-# 在项目根目录下（TableClaw/）
-cd nanobot
-.venv\Scripts\python -m nanobot agent --config configs/tableclaw-bailian-dashscope.json
+```bash
+./start.sh
 ```
 
 ### Windows (CMD)
 
 ```cmd
-cd nanobot
-.venv\Scripts\python -m nanobot agent --config configs/tableclaw-bailian-dashscope.json
+start.bat
 ```
 
-### Windows (Git Bash)
+### Windows (PowerShell)
 
-```bash
-# 在项目根目录下（TableClaw/）
-cd nanobot
-.venv/Scripts/python -m nanobot agent --config configs/tableclaw-bailian-dashscope.json
+```powershell
+.\start.ps1
 ```
+
+> 如果 PowerShell 报 "无法加载文件"，先执行：
+> ```powershell
+> Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+> ```
 
 ## 6. 验证启动成功
 
