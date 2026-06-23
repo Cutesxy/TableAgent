@@ -239,6 +239,31 @@ Excel 图表对象：
 
 本次 run 判定为：**主表 artifact 有条件通过，full workbook 覆盖不完整**。
 
+### 10.1 完成度评分
+
+这条任务没有独立 gold answer，因此不使用 ACC/F1，而是按“题目要求覆盖度 + 产物可验证性”做人工 rubric 评分。评分只基于本次 prompt、session trace、tool results 和输出 workbook。
+
+综合评分：**72 / 100**。
+
+补充口径：
+
+- 如果只评价 `Sheet1` 主投档线表的清洗、统计和图表产物，完成度约 **84 / 100**。
+- 如果严格评价“全量 workbook + 分批次/文理科/艺术类全覆盖”，完成度约 **65-70 / 100**。
+
+| 维度 | 权重 | 得分 | 依据 | 主要扣分 |
+| --- | ---: | ---: | --- | --- |
+| Skill / tool 路由 | 10 | 9 | 默认真实用户配置下，模型自主读取 `anthropic-xlsx`，并调用 `tableclaw_inspect` + openpyxl 脚本完成任务。 | 启动方式是管道输入，日志中有重复 prompt 回显；不影响结果，但不是理想交互轨迹。 |
+| 原始结构理解 | 15 | 10 | 正确识别 `Sheet1` 主表、`Sheet2` 理科专业多级表，发现主表表头在第 2 行、B 列省份合并、批次编码在 `科类（录取批次）` 中。 | 源文件实际有 `Sheet3` 文科专业多级表和 `Sheet4` 报录比表，trace/产物未纳入完整结构解释。 |
+| 脏数据识别 | 15 | 12 | 识别 A 列空列、合并单元格、重复表头、表头文本污染、`——` 特殊值、录取线差缺失等主表问题。 | 脏数据分析主要集中在 `Sheet1`，对 `Sheet2/3` 多级表头展开不足，对 `Sheet4` 未评估。 |
+| 清洗规整与全量覆盖 | 20 | 11 | 生成 `清洗数据` sheet，将 `Sheet1` 503 行整理成 `省份/文理/批次/专业/平均分/最高分/控线/录取线差` 8 列结构。 | “全量数据”未严格满足：`Sheet3`、`Sheet4` 未复制/清洗；`Sheet2` 只原样保留为 `原始数据_理科专业`，没有转成长表。 |
+| Excel 公式统计 | 20 | 16 | `统计分析` 有 308 个公式，覆盖 `COUNTIFS`、`MINIFS`、`MAXIFS`、`AVERAGEIFS`、`IFERROR`、`VLOOKUP`；公式引用范围覆盖 `清洗数据!2:504`。 | 未做 Excel/LibreOffice 重算；`VLOOKUP` 区域偏示例化，查询结果列没有单独填出结果；`IF` 主要以 `IFERROR` / 组合公式形式出现。 |
+| 原生图表 | 10 | 8 | `可视化图表` sheet 有 4 个 openpyxl chart objects，系列范围绑定到 `统计分析`，包括柱状图、饼图、横向柱状图。 | 只验证到对象和数据源范围，未做 Excel/WPS 打开后的视觉渲染检查；图表是否美观、标签是否可读未验证。 |
+| 结果验证与可追溯性 | 10 | 6 | 归档了 prompt、session、usage、tool-results、最终回复、workbook summary 和预览图；模型还自我修正了“公式被覆盖为静态值”的问题。 | 没有 headless open/recalc、公式错误扫描、chart render、coverage manifest；token 和耗时偏高。 |
+
+结论：这条 run 已经证明 TableClaw 能在默认真实用户配置下完成一条“主投档表 -> 清洗数据 -> 公式统计 -> 原生图表”的 workbook artifact 流程；但不能宣称完成了“整份 Excel 全量数据”的严格处理，也不能宣称艺术类维度被完整建模。
+
+### 10.2 结果分析
+
 可靠完成的部分：
 
 - **默认真实用户配置下，模型能自主路由到 spreadsheet skill。** 本次没有使用 `anthropic-xlsx-only` 配置，模型仍第一步读取 `anthropic-xlsx`，并配合 `tableclaw_inspect` 与 openpyxl 脚本完成处理，说明通用 skill 的触发路径是有效的。
