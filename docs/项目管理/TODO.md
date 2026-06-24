@@ -37,10 +37,12 @@ TableClaw 当前主线是 To C / 通用 Table Agent 能力栈。四川财资工�
 - [x] 2026-06-15 Domain Overrides + Rank Filter 归档：gold40 A/B 平均 78.75%，badcase122 A/B/C 平均 88.25%，单次最高 90.98%。
 - [x] 2026-06-16 V3 Final Eight-Way Eval 归档：badcase122 x3 + query100 x5；排除明显 gold/task issue 后 all scored official ACC 95.20%，pre-scored ACC 92.50%，badcase adjusted avg 96.55%，query adjusted avg 94.19%。
 - [x] Gold/task issue 排除口径：runner 写入 `gold_issue_flags` / `excluded_from_acc`，主 ACC 排除明显题面/gold 问题，同时保留 raw ACC。
-- [x] `anthropic-xlsx` builtin skill：已放入 `nanobot/nanobot/skills/anthropic-xlsx/`，和 `table-read` 等内置 skill 平级。
-- [x] `anthropic-xlsx-only` 配置：`nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json`，用于隐藏小 table skills，测试大 spreadsheet skill 路线。
+- [x] `anthropic-xlsx` builtin skill：已放入 `nanobot/nanobot/skills/anthropic-xlsx/`，并成为当前唯一内置表格 workbook skill。
+- [x] 通用 workbook/artifact 评测口径：默认配置下以 `anthropic-xlsx` 为主要 spreadsheet skill，必要时用 `TABLECLAW_SYNC_DOMAIN_PACK=0` 保持 workspace 干净。
 - [x] Hermes 通用 artifact smoke：完成长表标准化、奢侈品同行对标、2026-2030 财务预测模型三类 workbook 输出。
-- [x] 通用 table task eval v0：新增 `docs/实验评测/generic-table-tasks/`，归档 Hermes run 的 xlsx、JPG 预览、日志、tool trace、usage 和详细报告。
+- [x] 北大投档分数线 artifact smoke：默认真实用户配置下完成主表清洗、公式统计和 Excel 原生图表生成；记录 full workbook 覆盖边界。
+- [x] 荆门预算 `.xls` cleanup smoke：完成 PDF 另存左右半表、双层表头到标准收支明细表的整理，并记录 `.xls` inspect 工具缺口。
+- [x] 通用 table task eval v0：新增 `docs/实验评测/generic-table-tasks/`，归档 Hermes / 北大 / 荆门 runs 的 xlsx、JPG 预览、日志、tool trace、usage 和详细报告。
 
 ## P0：下一轮必须做
 

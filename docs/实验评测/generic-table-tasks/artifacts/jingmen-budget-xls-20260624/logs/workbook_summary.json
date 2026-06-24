@@ -1,0 +1,75 @@
+{
+  "input_file": "docs/实验评测/generic-table-tasks/artifacts/jingmen-budget-xls-20260624/inputs/2015年荆门市一般公共预算收支执行情况表（表一）.xls",
+  "output_file": "docs/实验评测/generic-table-tasks/artifacts/jingmen-budget-xls-20260624/outputs/2015年荆门市一般公共预算收支明细表.xlsx",
+  "source_shape": [
+    34,
+    14
+  ],
+  "output_shape": [
+    46,
+    10
+  ],
+  "output_columns": [
+    "口径",
+    "层级",
+    "上级项目",
+    "项目名称",
+    "2014决算",
+    "2015预算",
+    "2015决算",
+    "增减额",
+    "增减%",
+    "预算完成率"
+  ],
+  "sheets": [
+    {
+      "sheet": "收支明细",
+      "max_row": 47,
+      "max_column": 10,
+      "nonempty_cells": 461,
+      "formula_count": 0,
+      "chart_count": 0,
+      "merged_ranges": 0,
+      "freeze_panes": "A2",
+      "auto_filter": "A1:J47"
+    }
+  ],
+  "coverage_by_scope_level": [
+    {
+      "口径": "支出",
+      "层级": 0,
+      "行数": 1
+    },
+    {
+      "口径": "支出",
+      "层级": 1,
+      "行数": 18
+    },
+    {
+      "口径": "收入",
+      "层级": 0,
+      "行数": 1
+    },
+    {
+      "口径": "收入",
+      "层级": 1,
+      "行数": 2
+    },
+    {
+      "口径": "收入",
+      "层级": 2,
+      "行数": 14
+    },
+    {
+      "口径": "收入",
+      "层级": 3,
+      "行数": 10
+    }
+  ],
+  "potential_issues": [
+    "tableclaw_inspect currently does not support .xls and the model fell back to pandas/openpyxl.",
+    "Source row 探矿权采矿权价款收入 has blank 增减额 while 2014/2015 values imply -269; output preserves source and flags for review.",
+    "Source row 其他专项收入 has blank 2014决算/增减额; output preserves source and flags for review.",
+    "17.预备费 has blank 2014/2015决算 but zero derived fields in source/output; semantic distinction between zero and missing may require downstream policy."
+  ]
+}

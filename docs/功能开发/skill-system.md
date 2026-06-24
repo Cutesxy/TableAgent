@@ -153,18 +153,20 @@ nanobot/nanobot/skills/anthropic-xlsx/
 当前验证：
 
 - Hermes 长表 artifact smoke 已验证它能完成长表清洗、同行对标框架和 2026-2030 预测模型 workbook。
+- 北大投档分数线 run 已验证默认真实用户配置下可以完成主表清洗、公式统计和 Excel 原生图表生成。
+- 荆门预算 `.xls` run 已验证 PDF 另存左右半表可以整理为标准收支明细表，并暴露出 `.xls` inspect 工具缺口。
 - 归档报告：[Hermes Anthropic XLSX Skill Eval](../实验评测/generic-table-tasks/hermes-anthropic-xlsx-20260622.md)。
 
 ## Skill 可见性与评测模式
 
 常用模式：
 
-| 模式 | 配置 | 用途 |
+| 模式 | 当前做法 | 用途 |
 | --- | --- | --- |
 | 默认交互 | `nanobot/configs/tableclaw-bailian-dashscope.json` | 默认开发和交互，当前表格 builtin skill 为 `anthropic-xlsx`。 |
-| 低温评测 | `nanobot/configs/tableclaw-bailian-dashscope-eval.json` | 主线业务 benchmark，降低路径漂移。 |
-| No spreadsheet skill 对照 | `nanobot/configs/tableclaw-bailian-dashscope-no-xlsx-skill.json` | 禁用 `anthropic-xlsx`，用于观察没有内置 spreadsheet skill 时的能力。 |
-| 通用 workbook/artifact 测试 | `nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json` | 以 `anthropic-xlsx` 为主要 spreadsheet skill，评估通用 artifact workflow。 |
+| 主线业务评测 | `eval_gold_parallel.sh` + `run_gold_parallel_eval.py`，默认读取 `tableclaw-bailian-dashscope.json`，judge 侧 `temperature=0` | 评估 domain pack + 通用工具的准确率和稳定性。 |
+| 通用 workbook/artifact 测试 | 默认配置 + 真实上传表；必要时设置 `TABLECLAW_SYNC_DOMAIN_PACK=0` 保持 workspace 干净 | 以 `anthropic-xlsx` 为主要 spreadsheet skill，评估通用 artifact workflow。 |
+| No spreadsheet skill 对照 | 需要时临时通过配置/分支禁用 `anthropic-xlsx` | 观察没有完整 spreadsheet skill 时的退化表现，目前不是主线配置。 |
 
 注意：
 

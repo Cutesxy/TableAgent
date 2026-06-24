@@ -14,7 +14,7 @@ TableClaw 是一个通用 Table Agent 项目。它面向真实业务表格工作
   - 排除 53 个明显 gold/task issue 后，813 scored cases 主 ACC：95.20%；保守 pre-scored ACC：92.50%。
   - badcase122 official adjusted ACC：96.55%；query100 official adjusted ACC：94.19%。
 - 当前主要短板：query rewrite 下的时间表达、指标别名、表族选择和少量 sparse/reporting fallback 稳定性；后续应继续改进结构化 reconciliation，而不是污染通用工具。
-- 评测稳定性：`eval_gold_parallel.sh` 默认使用低温评测配置 `nanobot/configs/tableclaw-bailian-dashscope-eval.json`（temperature=0.2）；`start.sh` 仍使用交互配置（temperature=1.0）。
+- 评测稳定性：`eval_gold_parallel.sh` 当前默认读取 `nanobot/configs/tableclaw-bailian-dashscope.json`，judge 侧使用 `temperature=0`；如需切换 agent 配置，可通过 `--config-path` 显式指定。
 
 ## 核心定位
 
@@ -276,7 +276,7 @@ workspace/domain_knowledge/tableclaw_industrial_finance.json
 | [Domain Knowledge Migration](docs/功能开发/domain-knowledge-migration.md) | 说明领域包、skill、domain knowledge 与通用工具的边界。 |
 | [Skill 模块设计](docs/功能开发/skill-system.md) | 说明当前内置 `anthropic-xlsx`、workspace/domain skill 和可见性配置。 |
 | [Gold Cases Benchmark](docs/实验评测/gold-cases/README.md) | gold40、badcase122、query100 主线 benchmark 入口和历史 run。 |
-| [Generic Table Tasks](docs/实验评测/generic-table-tasks/README.md) | 通用 workbook/artifact 任务评测入口，当前包含 Hermes `anthropic-xlsx` run 与产物归档。 |
+| [Generic Table Tasks](docs/实验评测/generic-table-tasks/README.md) | 通用 workbook/artifact 任务评测入口，当前包含 Hermes、北大投档分数线、荆门预算 `.xls` 清洗 run 与产物归档。 |
 | [Run History](docs/实验评测/gold-cases/runs/README.md) | 已归档的 benchmark 与专项 case 对比报告。 |
 | [Latest Eval: V3 Final Eight-Way Eval](docs/实验评测/gold-cases/runs/2026-06-16-v3-final-gold-issue-adjusted.md) | 当前最新主线评测归档：badcase122 三轮与 query100 五个随机 split，主 ACC 95.20%。 |
 | [开发日志](docs/项目管理/development-log.md) | 按时间记录关键决策、实现和评测结果。 |

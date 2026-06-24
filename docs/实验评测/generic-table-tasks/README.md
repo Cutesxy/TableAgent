@@ -1,6 +1,6 @@
 # Generic Table Tasks Eval
 
-> 最后更新：2026-06-23
+> 最后更新：2026-06-24
 
 本目录维护 TableClaw 第二阶段的通用表格上下游任务评测。它和四川财资 `gold-cases/` 主线不同：这里不评估某个业务 domain pack 的拟合效果，而是观察 TableClaw 在不依赖业务知识时，能否通过通用 spreadsheet skill、inspect、代码执行和 artifact 验证完成真实复杂表格任务。
 
@@ -26,11 +26,13 @@
 
 它用于观察一个完整 spreadsheet skill 是否能覆盖复杂 workbook artifact 任务。业务或客户专属知识应通过 domain pack / workspace skill 插拔，不进入通用 workbook skill。
 
-当前配置：
+当前运行建议：
 
 ```text
-nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
+nanobot/configs/tableclaw-bailian-dashscope.json
 ```
+
+通用任务评测建议保持 `anthropic-xlsx` 作为主要 spreadsheet skill；业务或客户专属知识通过 domain pack / workspace skill 插拔，不写入通用 workbook skill。如果需要避免运行时同步业务 domain pack，可以设置 `TABLECLAW_SYNC_DOMAIN_PACK=0`。
 
 ## 当前 Runs
 
@@ -38,6 +40,7 @@ nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
 | --- | --- | --- | --- |
 | [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx` | 综合人工评分 **76/100**：结构化清洗和预测 workbook 产物成立；同行经营数据为估算框架，仍需外部数据/RAG 和 artifact checker |
 | [PKU Admission Score Workbook Eval](pku-admission-real-user-20260623.md) | 北京大学各省各专业录取情况表清洗、公式统计、图表生成 | 默认真实用户配置 | 综合人工评分 **72/100**：主表 artifact 约 **84/100**；full workbook 覆盖、艺术类解析和公式重算仍需补强 |
+| [Jingmen Budget XLS Cleanup Eval](jingmen-budget-xls-20260624.md) | PDF 另存政府决算 `.xls` 左右半表清洗为标准收支明细 | 默认真实用户配置 | 综合人工评分 **88/100**：左右半表和双层表头恢复较好，收入/支出与层级完整；`.xls` inspect、审计追溯字段和重算校验仍需补强 |
 
 ## 当前 Artifact 评测口径
 

@@ -412,7 +412,7 @@ nanobot 原生行为：
 ./start.sh
 ```
 
-`start.sh` 会自动激活 `nanobot/.venv`，优先使用调用方已设置的 `DASHSCOPE_API_KEY`；如果未设置，则使用脚本内置的本地默认 Key。
+`start.sh` 会自动激活 `nanobot/.venv`，并要求调用方提前设置 `DASHSCOPE_API_KEY`。API Key 只通过环境变量注入，不在脚本、配置文件或文档中保存明文密钥。
 
 注意：用户口头目标写作 “Kimi K2.6”，但本次提供的百炼文档示例与能力表对应 `deepseek-v4-pro` / DeepSeek 系列。当前配置以可验证的文档示例模型为准；如果后续确认 Kimi K2.6 在百炼中的真实 model id，只需要替换配置文件里的 `agents.defaults.model`，必要时再调整 provider/extra body。
 

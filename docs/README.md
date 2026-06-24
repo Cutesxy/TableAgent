@@ -34,7 +34,7 @@ TableClaw 是通用 Table Agent 能力栈。当前路线是：
 | 功能开发 | [Token Usage 统计](功能开发/token-usage.md) | usage 持久化、字段和查看方式。 |
 | 实验评测 | [实验评测索引](实验评测/README.md) | 当前评测入口、运行命令和输出位置。 |
 | 实验评测 | [Gold Cases Benchmark](实验评测/gold-cases/README.md) | gold40、badcase122、query100 的协议、历史 run 和最新结果。 |
-| 实验评测 | [Generic Table Tasks](实验评测/generic-table-tasks/README.md) | 通用 workbook/artifact 任务评测，当前包含 Hermes 与北大投档分数线 run 及产物归档。 |
+| 实验评测 | [Generic Table Tasks](实验评测/generic-table-tasks/README.md) | 通用 workbook/artifact 任务评测，当前包含 Hermes、北大投档分数线、荆门预算 `.xls` 清洗 run 及产物归档。 |
 | 项目管理 | [阶段进度报告](项目管理/2026-06-12-tableclaw-progress-report.md) | 当前最高 run、核心能力和问题边界。 |
 | 项目管理 | [TODO 计划](项目管理/TODO.md) | 当前 P0/P1/P2 待办。 |
 | 项目管理 | [开发日志](项目管理/development-log.md) | 最近关键决策、验证和上下文恢复。 |
@@ -62,6 +62,7 @@ TableClaw 是通用 Table Agent 能力栈。当前路线是：
 - 通用 workbook/artifact smoke：
   - [Hermes run](实验评测/generic-table-tasks/hermes-anthropic-xlsx-20260622.md)：验证 `anthropic-xlsx` 可以处理长表清洗、奢侈品同行对标和 2026-2030 财务预测 workbook 生成。
   - [北大投档分数线 run](实验评测/generic-table-tasks/pku-admission-real-user-20260623.md)：默认真实用户配置下验证招生主表清洗、公式统计和 Excel 原生图表生成；full workbook 覆盖和艺术类解析仍需补强。
+  - [荆门预算 `.xls` run](实验评测/generic-table-tasks/jingmen-budget-xls-20260624.md)：验证 PDF 另存左右半表、双层表头和旧 Excel 格式能否整理为标准收支明细表；`.xls` inspect 与审计追溯字段仍需补强。
 
 ## 推荐阅读顺序
 

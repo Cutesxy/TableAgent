@@ -38,7 +38,7 @@ eval_test/
 
 | Line | Runner | Config | Skill | Dataset | Report |
 | --- | --- | --- | --- | --- | --- |
-| **Gold40** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/gold_cases.jsonl --concurrency 8` | `tableclaw-bailian-dashscope-eval.json` + DeepSeek judge | domain skill + TableClaw tools | `gold_cases.jsonl` | `eval_test/results/gold_cases/parallel/latest_report.md` |
+| **Gold40** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/gold_cases.jsonl --concurrency 8` | `tableclaw-bailian-dashscope.json` + DeepSeek judge (`temperature=0`) | domain skill + TableClaw tools | `gold_cases.jsonl` | `eval_test/results/gold_cases/parallel/latest_report.md` |
 | **Badcase122** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/bad_cases.jsonl --concurrency 10` | same | same | `bad_cases.jsonl` | `eval_test/results/bad_cases/parallel/<run_group>/latest_report.md` |
 | **Query100** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/query_variants_100.jsonl --concurrency 10` | same | same | `query_variants_100*.jsonl` | `eval_test/results/query_variants/parallel/<run_group>/latest_report.md` |
 | **Mixed Regression** | `./eval_gold_parallel.sh --task-file eval_test/test_dataset/regression_mixed_*.jsonl --concurrency 10` | same | same | hard + correct_guard subsets | local regression reports |

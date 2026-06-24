@@ -1,0 +1,22 @@
+{
+  "run_id": "jingmen-budget-xls-20260624-135419",
+  "session": "cli:jingmen-budget-xls-20260624-135419",
+  "elapsed_ms": 176282,
+  "usage": {
+    "prompt_tokens": 225900,
+    "completion_tokens": 9463,
+    "total_tokens": 235363,
+    "cached_tokens": 176640
+  },
+  "tools_used": [
+    "read_file",
+    "tableclaw_inspect",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec"
+  ]
+}

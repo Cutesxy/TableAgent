@@ -225,13 +225,13 @@ nanobot/nanobot/skills/anthropic-xlsx/
     └── office/
 ```
 
-专用测试配置：
+当前测试方式：
 
 ```text
-nanobot/configs/tableclaw-bailian-dashscope-anthropic-xlsx-only.json
+nanobot/configs/tableclaw-bailian-dashscope.json
 ```
 
-2026-06-23 清理后，nanobot 内置表格 skill 只保留 `anthropic-xlsx`。该配置用于保持通用 workbook/artifact 评测路径纯净，观察一个完整 spreadsheet skill 是否能独立指导复杂 workbook artifact 任务。Hermes smoke 已验证它能产出清洗表、同行对标表和 2026-2030 预测模型。
+2026-06-23 清理后，nanobot 内置表格 skill 只保留 `anthropic-xlsx`。通用 workbook/artifact 评测不再依赖单独的 `anthropic-xlsx-only` 配置，而是在默认配置下观察模型是否主动选择这个完整 spreadsheet skill；必要时通过 `TABLECLAW_SYNC_DOMAIN_PACK=0` 保持 workspace 干净。Hermes、北大投档分数线和荆门预算 `.xls` smoke 已分别验证长表建模、招生表公式图表和 PDF 另存半结构化表清洗三类任务。
 
 注意事项：
 
