@@ -27,6 +27,7 @@
 | [generic-table-tasks/hermes-anthropic-xlsx-20260622.md](generic-table-tasks/hermes-anthropic-xlsx-20260622.md) | Hermes 长表清洗、同行对标、预测模型 run；包含 xlsx 产物、JPG 预览、最终回复、日志、tool trace、token/耗时和 LV/LVMH 数据来源边界。 |
 | [generic-table-tasks/pku-admission-real-user-20260623.md](generic-table-tasks/pku-admission-real-user-20260623.md) | 北大投档分数线 workbook run；默认真实用户配置下主表 artifact 有条件通过，full workbook 覆盖和艺术类解析仍需补强。 |
 | [generic-table-tasks/jingmen-budget-xls-20260624.md](generic-table-tasks/jingmen-budget-xls-20260624.md) | 荆门政府决算 `.xls` run；PDF 另存左右半表和双层表头整理为标准收支明细，`.xls` inspect 与审计追溯字段仍需补强。 |
+| [generic-table-tasks/boq-cleanup-20260624-143239.md](generic-table-tasks/boq-cleanup-20260624-143239.md) | 工程量清单轻量 run；整理一级工程、二级清单、子项层级，区分汇总/明细行，并标记金额 Top10 子项。 |
 
 ## 小集合回归
 

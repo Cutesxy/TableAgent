@@ -41,6 +41,7 @@ nanobot/configs/tableclaw-bailian-dashscope.json
 | [Hermes Anthropic XLSX Skill Eval](hermes-anthropic-xlsx-20260622.md) | Hermès 20 年长表清洗、奢侈品同行对标、2026-2030 财务预测模型 | `anthropic-xlsx` | 综合人工评分 **76/100**：结构化清洗和预测 workbook 产物成立；同行经营数据为估算框架，仍需外部数据/RAG 和 artifact checker |
 | [PKU Admission Score Workbook Eval](pku-admission-real-user-20260623.md) | 北京大学各省各专业录取情况表清洗、公式统计、图表生成 | 默认真实用户配置 | 综合人工评分 **72/100**：主表 artifact 约 **84/100**；full workbook 覆盖、艺术类解析和公式重算仍需补强 |
 | [Jingmen Budget XLS Cleanup Eval](jingmen-budget-xls-20260624.md) | PDF 另存政府决算 `.xls` 左右半表清洗为标准收支明细 | 默认真实用户配置 | 综合人工评分 **88/100**：左右半表和双层表头恢复较好，收入/支出与层级完整；`.xls` inspect、审计追溯字段和重算校验仍需补强 |
+| [BOQ Cleanup Lightweight Eval](boq-cleanup-20260624-143239.md) | 工程量清单层级整理为可筛选明细表，并标记金额 Top10 子项 | 默认真实用户配置 | LLM judge **92/100**：一级工程/二级清单/子项关系补齐较好，汇总行与明细行可筛选；重复明细和非叶子节点计入口径仍需人工复核 |
 
 ## 当前 Artifact 评测口径
 

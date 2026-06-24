@@ -1,0 +1,29 @@
+{
+  "run_id": "boq-cleanup-20260624-143239",
+  "session": "cli:boq-cleanup-20260624-143239",
+  "elapsed_ms": 353494,
+  "usage": {
+    "prompt_tokens": 530672,
+    "completion_tokens": 20437,
+    "total_tokens": 551109,
+    "cached_tokens": 386048
+  },
+  "tools_used": [
+    "read_file",
+    "tableclaw_inspect",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec",
+    "exec"
+  ],
+  "outputs": [
+    "/Users/hxy/Desktop/TableClaw/workspace/工程量清单_明细表.xlsx"
+  ]
+}
