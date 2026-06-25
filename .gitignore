@@ -23,8 +23,13 @@ workspace/usage/usage.jsonl
 workspace/usage/*.lock
 workspace/memory/history.jsonl
 
-# Local demo / recording prototypes
-demo/
+# Demo UI local artifacts
+demo/.env.local
+demo/frontend/node_modules/
+demo/frontend/dist/
+demo/frontend/tsconfig.tsbuildinfo
+demo/backend/__pycache__/
+demo/runs/
 
 # Raw external reference materials kept locally; migrate curated content into docs/ or domain_packs/
 补充/
